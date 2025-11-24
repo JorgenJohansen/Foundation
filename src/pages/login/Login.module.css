@@ -1,0 +1,10 @@
+.link {
+    color: #1976d2;
+    margin-left: 5px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
