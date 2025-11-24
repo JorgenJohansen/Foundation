@@ -13,6 +13,8 @@ import Forgot from './pages/forgot/Forgot';
 import Terms from './pages/terms/Terms';
 import Privacy from './pages/privacy/Privacy';
 import Sleep from './pages/sleep/Sleep';
+import Todos from './pages/todos/Todos';
+import Budgets from './pages/budgets/Budgets';
 
 
 
@@ -21,6 +23,8 @@ const router = createBrowserRouter(
     <Route path='/' element={<Navbar />}>
         <Route element={<RequireAuth />}>
           <Route path='/' element={<Sleep />} />
+          <Route path='/todos' element={<Todos />} />
+          <Route path='/budsjetter' element={<Budgets />} />
           
         </Route>
 

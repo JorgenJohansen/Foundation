@@ -81,7 +81,7 @@ export default function Navbar() {
                 >
                     <Menu />
                 </Button>
-                <List>
+                <List sx={classes.list}>
                     <ListItem
                         button="true"
                         sx={classes.listItem}
@@ -89,6 +89,30 @@ export default function Navbar() {
                         onClick={() => navigate("/")}
                     >
                         <ListItemText primary={"Foundation"}/>
+                    </ListItem>
+                    <ListItem
+                        button="true"
+                        sx={classes.listItem}
+                        key={"sovn"}
+                        onClick={() => navigate("/")}
+                    >
+                        <ListItemText primary={"Søvn"}/>
+                    </ListItem>
+                    <ListItem
+                        button="true"
+                        sx={classes.listItem}
+                        key={"todos"}
+                        onClick={() => navigate("/todos")}
+                    >
+                        <ListItemText primary={"Todos"}/>
+                    </ListItem>
+                    <ListItem
+                        button="true"
+                        sx={classes.listItem}
+                        key={"budsjetter"}
+                        onClick={() => navigate("/budsjetter")}
+                    >
+                        <ListItemText primary={"Budsjetter"}/>
                     </ListItem>
                 </List>
                 </Box>

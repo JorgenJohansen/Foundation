@@ -23,8 +23,11 @@ export default function Sleep() {
 
   return (
     <Box sx={{margin: 20}}>
-        <Typography variant="h4">Her registrer du søvn:</Typography>
-        <Typography variant="h5">- Dagen i dag er {date} i uke {week}</Typography>
+        {(sleep.length === 0) && <>
+          <Typography variant="h4">Her registrer du søvn:</Typography>
+          <Typography variant="h5">- Dagen i dag er {date} i uke {week}</Typography>
+        </>}
+        
         {(sleep.length === 0) && <Button 
             sx={{width: 200, marginBottom: 5}}
             type="submit" 
