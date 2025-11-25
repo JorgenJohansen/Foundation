@@ -1,8 +1,8 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useState } from "react";
 import { Box, Button, Drawer, Typography } from "@mui/material";
-import TodoForm from "./TodoForm";
 import { useCollection } from "../../hooks/useCollection";
+import TodoForm from "./TodoForm";
 import TodoList from "./TodoList";
 
 
@@ -32,7 +32,7 @@ export default function Todos() {
         </Typography>
       </Button>
       
-      {todos && <TodoList user={user} todos={todos} />}
+      {todos && <TodoList todos={todos} />}
       
       <Drawer anchor="bottom" open={open} onClose={toggleDrawer(false)}>
           <TodoForm user={user} setOpen={setOpen} />
