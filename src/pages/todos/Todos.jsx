@@ -17,7 +17,6 @@ export default function Todos() {
     };
 
     const {documents: todos } = useCollection('todos', ['uid','==',user?.uid],['createdAt','desc']);
-    console.log(todos);
 
   return (
     <Box sx={{margin: 10}}>

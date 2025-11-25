@@ -15,6 +15,8 @@ import Privacy from './pages/privacy/Privacy';
 import Sleep from './pages/sleep/Sleep';
 import Todos from './pages/todos/Todos';
 import Budgets from './pages/budgets/Budgets';
+import EditTodo from './pages/todos/EditTodo';
+import DeleteTodo from './pages/todos/DeleteTodo';
 
 
 
@@ -24,6 +26,8 @@ const router = createBrowserRouter(
         <Route element={<RequireAuth />}>
           <Route path='/' element={<Sleep />} />
           <Route path='/todos' element={<Todos />} />
+          <Route path='/todos/:id/rediger' element={<EditTodo />} />
+          <Route path='/todos/:id/slett' element={<DeleteTodo />} />
           <Route path='/budsjetter' element={<Budgets />} />
           
         </Route>

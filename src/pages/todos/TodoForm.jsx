@@ -48,7 +48,9 @@ export default function TodoForm({user, setOpen}) {
             description: description.trim(),
             done: false,
             uid: user?.uid,
-        })
+        });
+
+        setOpen(false);
     }
   return (
     <>
