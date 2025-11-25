@@ -17,6 +17,9 @@ import Todos from './pages/todos/Todos';
 import Budgets from './pages/budgets/Budgets';
 import EditTodo from './pages/todos/EditTodo';
 import DeleteTodo from './pages/todos/DeleteTodo';
+import SoloBudget from './pages/budgets/soloBudget/SoloBudget';
+import EditBudget from './pages/budgets/EditBudget';
+import DeleteBudget from './pages/budgets/DeleteBudget';
 
 
 
@@ -29,6 +32,9 @@ const router = createBrowserRouter(
           <Route path='/todos/:id/rediger' element={<EditTodo />} />
           <Route path='/todos/:id/slett' element={<DeleteTodo />} />
           <Route path='/budsjetter' element={<Budgets />} />
+          <Route path='/budsjetter/:id' element={<SoloBudget />} />
+          <Route path='/budsjetter/:id/rediger' element={<EditBudget />} />
+          <Route path='/budsjetter/:id/slett' element={<DeleteBudget />} />
           
         </Route>
 
