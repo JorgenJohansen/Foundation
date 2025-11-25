@@ -32,6 +32,12 @@ export default function SleepForm({user, date, week, setOpen}) {
     const [awakeTimeError, setAwakeTimeError] = useState(false);
     const [sleepQualityError, setSleepQualityError] = useState(false);
     const [energyLevelError, setEnergyLevelError] = useState(false);
+
+    const getYear = (date1) => {
+        const dateList = date1.split(".");
+        const year = dateList[2];
+        return year;
+    }
     
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -67,6 +73,7 @@ export default function SleepForm({user, date, week, setOpen}) {
             createdAt: timestamp.fromDate(new Date()),
             date: date,
             week: week,
+            year: getYear(date),
             sleepTime: sleepTime,
             awakeTime: awakeTime,
             sleepQuality: sleepQuality,
