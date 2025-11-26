@@ -11,14 +11,16 @@ export default function BudgetInfo({ budget, monthlyExpenses, yearlyExpenses, si
 
   const generateTotalExpenses = () => {
     let sum = 0;
-    for(let expense of monthlyExpenses){
-      sum += (+expense.expense * 12);
+    for(let i = 0; i < monthlyExpenses?.length; i++){
+      sum += +monthlyExpenses[i].expense * 12
     }
-    for(let expense of yearlyExpenses){
-      sum += +expense.expense;
+
+    for(let i = 0; i < yearlyExpenses?.length; i++){
+      sum += +yearlyExpenses[i].expense
     }
-    for(let expense of singleExpenses){
-      sum += +expense.expense;
+
+    for(let i = 0; i < singleExpenses?.length; i++){
+      sum += +singleExpenses[i].expense
     }
 
     return sum;
