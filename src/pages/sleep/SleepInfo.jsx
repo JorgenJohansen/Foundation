@@ -4,13 +4,6 @@ import { Box, Card, CardContent, CardHeader, Divider, Typography } from "@mui/ma
 
 export default function SleepInfo({sleep}) {
 
-    let timestamp = sleep.sleepTime.seconds;
-    const date = new Date(timestamp * 1000);
-
-    const hours = date.getHours();
-
-    console.log(hours);
-
     const convertToTime = (timestamp) => {
         const date = new Date(timestamp * 1000);
         const hours = date.getHours();

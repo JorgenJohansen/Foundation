@@ -1,5 +1,5 @@
 import { Badge, Box, Button, Tab, Tabs, Typography } from "@mui/material";
-import { Group, Search } from "@material-ui/icons";
+import { Payment } from "@material-ui/icons";
 
 import { ArrowBack } from "@material-ui/icons";
 import { useNavigate, useParams } from "react-router-dom";
@@ -52,8 +52,6 @@ export default function SoloBudget() {
     const { documents: yearlyExpenses } = useSubCollection('budgets', id, 'yearlyExpenses');
     const { documents: singleExpenses } = useSubCollection('budgets', id, 'singleExpenses');
 
-    console.log(budget);
-
     const [value, setValue] = useState(0);
     const handleChange = (event, newValue) => {
       setValue(newValue);
@@ -68,7 +66,7 @@ export default function SoloBudget() {
         >
         Dra tilbake
         </Button>
-        <Typography variant="h5">Denne siden skal vise fram budsjettinfo, kakediagram, kostnader og PDF nedlastning</Typography>
+        <Typography variant="h5" sx={{marginY: 20}}>Denne siden skal vise fram budsjettinfo, kakediagram, kostnader og PDF nedlastning</Typography>
         <BudgetInfo budget={budget} />
         <CakeChart monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
         <Box sx={{ width: '90%', margin: 10 }}>
@@ -86,33 +84,33 @@ export default function SoloBudget() {
           <Tab 
             icon={
               <Badge badgeContent={monthlyExpenses?.length || 0} color="primary">
-                <Group />
+                <Payment />
               </Badge>
               
             } label="Månedlige kostnader" {...a11yProps(0)} />
           <Tab icon={
             <Badge badgeContent={yearlyExpenses?.length || 0} color="primary">
-              <Search />
+              <Payment />
             </Badge>
             
             } label="Årlige kostnader" {...a11yProps(1)} />
           <Tab 
             icon={
               <Badge badgeContent={yearlyExpenses?.length || 0} color="primary">
-                <Group />
+                <Payment />
               </Badge>
               
             } label="Enkelt kostnader" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <MonthlyExpenses expenses={monthlyExpenses} />
+        <MonthlyExpenses expenses={monthlyExpenses} budgetId={id} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <YearlyExpenses expenses={yearlyExpenses} />
+        <YearlyExpenses expenses={yearlyExpenses} budgetId={id} />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <SingleExpenses expenses={singleExpenses}/>
+        <SingleExpenses expenses={singleExpenses} budgetId={id} />
       </CustomTabPanel>
     </Box>
     </Box>

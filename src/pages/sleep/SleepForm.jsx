@@ -36,7 +36,7 @@ export default function SleepForm({user, date, week, setOpen}) {
     const getYear = (date1) => {
         const dateList = date1.split(".");
         const year = dateList[2];
-        return year;
+        return +year;
     }
     
     const handleSubmit = async(e) => {

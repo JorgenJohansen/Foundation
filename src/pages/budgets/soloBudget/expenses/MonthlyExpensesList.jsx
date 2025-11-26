@@ -1,28 +1,25 @@
 /* eslint-disable react/prop-types */
 
 import { Box, Card, CardContent, CardHeader, Divider, Grid2, IconButton, List, ListItem, ListItemText, Tooltip, Typography } from "@mui/material";
-import { DeleteOutlined, EditOutlined, Payment, ViewList, VisibilityOutlined } from "@material-ui/icons";
+import { DeleteOutlined, EditOutlined, Payment, ViewList } from "@material-ui/icons";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function BudgetList({budgets}) {
+export default function MonthlyExpensesList({expenses}) {
 
-    const budgetView = JSON.parse(localStorage.getItem('budgetView'));
+  const budgetView = JSON.parse(localStorage.getItem(`monthlyExpensesView`));
+  
+  const [listView, setListView] = useState(budgetView?.listView);
+  const [cardView, setCardView] = useState(budgetView?.cardView);
 
-    const [listView, setListView] = useState(budgetView?.listView);
-    const [cardView, setCardView] = useState(budgetView?.cardView);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const sendToDelete = (id) => {
-        navigate(`/budsjetter/${id}/slett`);
+  const sendToDelete = (id) => {
+        navigate(`manedligeKostnader/${id}/slett`);
     }
     const sendToEdit = (id) => {
-        navigate(`/budsjetter/${id}/rediger`);
-    }
-    const sendToView = (id) => {
-        navigate(`/budsjetter/${id}`);
+        navigate(`manedligeKostnader/${id}/rediger`);
     }
 
     const changeListView = () => {
@@ -32,7 +29,7 @@ export default function BudgetList({budgets}) {
             listView: true,
             cardView: false,
         }
-        localStorage.setItem('budgetView', JSON.stringify(view));
+        localStorage.setItem('monthlyExpensesView', JSON.stringify(view));
     }
 
     const changeCardView = () => {
@@ -42,7 +39,7 @@ export default function BudgetList({budgets}) {
             listView: false,
             cardView: true,
         }
-        localStorage.setItem('budgetView', JSON.stringify(view));
+        localStorage.setItem('monthlyExpensesView', JSON.stringify(view));
     }
 
     let defaultView;
@@ -62,7 +59,7 @@ export default function BudgetList({budgets}) {
   return (
     <>
         <Box margin={2}>
-        {(budgets?.length > 0) &&
+        {(expenses?.length > 0) &&
             <>
             <Tooltip placement="top" title={<Typography fontSize={15}>Listevisning</Typography>}>
                 <IconButton onClick={changeListView} >
@@ -78,43 +75,39 @@ export default function BudgetList({budgets}) {
 
         </Box>
         {(defaultView || cardView) && <Grid2 container spacing={2} sx={{marginLeft: 0}} xs={12} sm={6} md={4} lg={3} >
-        {budgets?.map(budget => (
-            <Grid2 item="true" key={budget.id} >
+        {expenses?.map(expense => (
+            <Grid2 item="true" key={expense.id} >
 
             <Card sx={{width: "400px", border: "3px solid #1769aa"}}>
                 <CardHeader 
                 action={
                     <>
                     <Tooltip title={<Typography fontSize={15}>Rediger Budsjett</Typography>} placement="top">
-                    <IconButton onClick={() => sendToView(budget.id)}>
-                        <VisibilityOutlined />
-                    </IconButton>
-                    </Tooltip>
-                    <Tooltip title={<Typography fontSize={15}>Rediger Budsjett</Typography>} placement="top">
-                    <IconButton onClick={() => sendToEdit(budget.id)}>
+                    <IconButton onClick={() => sendToEdit(expense.id)}>
                         <EditOutlined />
                     </IconButton>
                     </Tooltip>
                     <Tooltip title={<Typography fontSize={15}>Slett Budsjett</Typography>} placement="top">
-                    <IconButton onClick={() => sendToDelete(budget.id)}>
+                    <IconButton onClick={() => sendToDelete(expense.id)}>
                     <DeleteOutlined />
                     </IconButton>
                     </Tooltip>
                     </>
                 }
-                title={budget.title}
+                title={expense.title}
                 />
                 <Divider sx={{ borderBottomWidth: 3 }} />
                 <CardContent>
                     <Typography variant="h6" color="textSecondary" margin={1}>
-                        {budget.budget}kr i budsjettet
+                        {expense.expense}kr i kostnad pr mnd.
                     </Typography>
                     <Typography variant="h6" color="textSecondary" margin={1}>
-                        Start dato: {convertToDateString(budget.startDate.seconds)}
+                      Kategori: {expense.category}
                     </Typography>
                     <Typography variant="h6" color="textSecondary" margin={1}>
-                        Slutt dato: {convertToDateString(budget.endDate.seconds)}
+                        Dato: {convertToDateString(expense.date.seconds)}
                     </Typography>
+                    
                 </CardContent>
             </Card>
             </Grid2>
@@ -122,31 +115,25 @@ export default function BudgetList({budgets}) {
         </Grid2>}
 
         { listView && <List>
-            {budgets?.map(budget => (
+            {expenses?.map(expense => (
                 <ListItem sx={{width: 400, border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
-                    key={budget.id}
+                    key={expense.id}
                     secondaryAction={
                         <Box display="flex" justifyContent="center" alignItems="center">
-                        
-                        <Tooltip title={<Typography fontSize={15}>Se Budsjett</Typography>} placement="top">
-                            <IconButton onClick={() => sendToView(budget.id)}>
-                                <VisibilityOutlined />
-                            </IconButton>
-                        </Tooltip>
-                        <Tooltip title={<Typography fontSize={15}>Rediger Budsjett</Typography>} placement="top">
-                            <IconButton onClick={() => sendToEdit(budget.id)}>
+                        <Tooltip title={<Typography fontSize={15}>Rediger Månedlig Kostnad</Typography>} placement="top">
+                            <IconButton onClick={() => sendToEdit(expense.id)}>
                                 <EditOutlined />
                             </IconButton>
                         </Tooltip>
-                        <Tooltip title={<Typography fontSize={15}>Slett Budsjett</Typography>} placement="top">
-                            <IconButton onClick={() => sendToDelete(budget.id)}>
+                        <Tooltip title={<Typography fontSize={15}>Slett Månedlig Kostnad</Typography>} placement="top">
+                            <IconButton onClick={() => sendToDelete(expense.id)}>
                                 <DeleteOutlined />
                             </IconButton>
                         </Tooltip>
                         </Box>
                     }
                 >
-                    <ListItemText primary={budget.title} />
+                    <ListItemText primary={expense.title} />
                 </ListItem>
             ))}
         </List>}
