@@ -22,7 +22,7 @@ const classes = {
 }
 
 
-export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
+export default function YearlyExpensesForm({user, setOpen, budgetId}) {
   const [title, setTitle] = useState('');
   const [expense, setExpense] = useState(0);
   const [category, setCategory] = useState();
@@ -62,7 +62,7 @@ export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
       return;
     }
 
-    const colRef = collection(db, 'budgets', budgetId, 'monthlyExpenses');
+    const colRef = collection(db, 'budgets', budgetId, 'yearlyExpenses');
 
     await addDoc(colRef, {
       createdAt: timestamp.fromDate(new Date()),

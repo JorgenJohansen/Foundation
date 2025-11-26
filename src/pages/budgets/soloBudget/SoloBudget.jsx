@@ -96,7 +96,7 @@ export default function SoloBudget() {
             } label="Årlige kostnader" {...a11yProps(1)} />
           <Tab 
             icon={
-              <Badge badgeContent={yearlyExpenses?.length || 0} color="primary">
+              <Badge badgeContent={singleExpenses?.length || 0} color="primary">
                 <Payment />
               </Badge>
               

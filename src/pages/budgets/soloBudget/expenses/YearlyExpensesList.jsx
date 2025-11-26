@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function MonthlyExpensesList({expenses}) {
 
-  const expenseView = JSON.parse(localStorage.getItem(`monthlyExpensesView`));
+  const expenseView = JSON.parse(localStorage.getItem(`yearlyExpensesView`));
   
   const [listView, setListView] = useState(expenseView?.listView);
   const [cardView, setCardView] = useState(expenseView?.cardView);
@@ -16,10 +16,10 @@ export default function MonthlyExpensesList({expenses}) {
   const navigate = useNavigate();
 
   const sendToDelete = (id) => {
-        navigate(`manedligeKostnader/${id}/slett`);
+        navigate(`aarligeKostnader/${id}/slett`);
     }
     const sendToEdit = (id) => {
-        navigate(`manedligeKostnader/${id}/rediger`);
+        navigate(`aarligeKostnader/${id}/rediger`);
     }
 
     const changeListView = () => {
@@ -29,7 +29,7 @@ export default function MonthlyExpensesList({expenses}) {
             listView: true,
             cardView: false,
         }
-        localStorage.setItem('monthlyExpensesView', JSON.stringify(view));
+        localStorage.setItem('yearlyExpensesView', JSON.stringify(view));
     }
 
     const changeCardView = () => {
@@ -39,7 +39,7 @@ export default function MonthlyExpensesList({expenses}) {
             listView: false,
             cardView: true,
         }
-        localStorage.setItem('monthlyExpensesView', JSON.stringify(view));
+        localStorage.setItem('yearlyExpensesView', JSON.stringify(view));
     }
 
     let defaultView;
@@ -120,12 +120,12 @@ export default function MonthlyExpensesList({expenses}) {
                     key={expense.id}
                     secondaryAction={
                         <Box display="flex" justifyContent="center" alignItems="center">
-                        <Tooltip title={<Typography fontSize={15}>Rediger Kostnad</Typography>} placement="top">
+                        <Tooltip title={<Typography fontSize={15}>Rediger Månedlig Kostnad</Typography>} placement="top">
                             <IconButton onClick={() => sendToEdit(expense.id)}>
                                 <EditOutlined />
                             </IconButton>
                         </Tooltip>
-                        <Tooltip title={<Typography fontSize={15}>Slett Kostnad</Typography>} placement="top">
+                        <Tooltip title={<Typography fontSize={15}>Slett Månedlig Kostnad</Typography>} placement="top">
                             <IconButton onClick={() => sendToDelete(expense.id)}>
                                 <DeleteOutlined />
                             </IconButton>
