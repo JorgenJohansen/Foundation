@@ -6,9 +6,9 @@ import { DeleteOutlined, EditOutlined, Payment, ViewList } from "@material-ui/ic
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function MonthlyExpensesList({expenses}) {
+export default function SingleExpensesList({expenses}) {
 
-  const expenseView = JSON.parse(localStorage.getItem(`yearlyExpensesView`));
+  const expenseView = JSON.parse(localStorage.getItem(`singleExpensesView`));
   
   const [listView, setListView] = useState(expenseView?.listView);
   const [cardView, setCardView] = useState(expenseView?.cardView);
@@ -16,10 +16,10 @@ export default function MonthlyExpensesList({expenses}) {
   const navigate = useNavigate();
 
   const sendToDelete = (id) => {
-        navigate(`aarligeKostnader/${id}/slett`);
+        navigate(`enkeltKostnader/${id}/slett`);
     }
     const sendToEdit = (id) => {
-        navigate(`aarligeKostnader/${id}/rediger`);
+        navigate(`enkeltKostnader/${id}/rediger`);
     }
 
     const changeListView = () => {
@@ -29,7 +29,7 @@ export default function MonthlyExpensesList({expenses}) {
             listView: true,
             cardView: false,
         }
-        localStorage.setItem('yearlyExpensesView', JSON.stringify(view));
+        localStorage.setItem('singleExpensesView', JSON.stringify(view));
     }
 
     const changeCardView = () => {
@@ -39,7 +39,7 @@ export default function MonthlyExpensesList({expenses}) {
             listView: false,
             cardView: true,
         }
-        localStorage.setItem('yearlyExpensesView', JSON.stringify(view));
+        localStorage.setItem('singleExpensesView', JSON.stringify(view));
     }
 
     let defaultView;
@@ -99,7 +99,7 @@ export default function MonthlyExpensesList({expenses}) {
                 <Divider sx={{ borderBottomWidth: 3 }} />
                 <CardContent>
                     <Typography variant="h6" color="textSecondary" margin={1}>
-                        {expense.expense}kr i kostnad pr år.
+                        {expense.expense}kr i kostnad.
                     </Typography>
                     <Typography variant="h6" color="textSecondary" margin={1}>
                       Kategori: {expense.category}

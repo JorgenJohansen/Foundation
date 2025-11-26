@@ -67,7 +67,7 @@ export default function SoloBudget() {
         Dra tilbake
         </Button>
         <Typography variant="h5" sx={{marginY: 20}}>Denne siden skal vise fram budsjettinfo, kakediagram, kostnader og PDF nedlastning</Typography>
-        <BudgetInfo budget={budget} />
+        <BudgetInfo budget={budget} monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
         <CakeChart monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
         <Box sx={{ width: '90%', margin: 10 }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
