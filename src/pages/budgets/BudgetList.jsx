@@ -85,7 +85,7 @@ export default function BudgetList({budgets}) {
                 <CardHeader 
                 action={
                     <>
-                    <Tooltip title={<Typography fontSize={15}>Rediger Budsjett</Typography>} placement="top">
+                    <Tooltip title={<Typography fontSize={15}>Se Budsjett</Typography>} placement="top">
                     <IconButton onClick={() => sendToView(budget.id)}>
                         <VisibilityOutlined />
                     </IconButton>
