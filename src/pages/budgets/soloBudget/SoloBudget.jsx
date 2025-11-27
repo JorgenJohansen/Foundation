@@ -1,4 +1,4 @@
-import { Badge, Box, Button, Tab, Tabs, Typography } from "@mui/material";
+import { Badge, Box, Button, Tab, Tabs } from "@mui/material";
 import { Payment } from "@material-ui/icons";
 
 import { ArrowBack } from "@material-ui/icons";
@@ -66,8 +66,8 @@ export default function SoloBudget() {
         >
         Dra tilbake
         </Button>
-        <Typography variant="h5" sx={{marginY: 20}}>Denne siden skal vise fram budsjettinfo, kakediagram, kostnader og PDF nedlastning</Typography>
-        <Box sx={{display: 'flex', flexWrap: 'wrap', margin: 10}}>
+        
+        <Box sx={{display: 'flex', flexWrap: 'wrap', margin: 20}}>
           <BudgetInfo budget={budget} monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
           <CakeChart monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
         </Box>

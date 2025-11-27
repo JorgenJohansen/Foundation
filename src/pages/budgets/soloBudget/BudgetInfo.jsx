@@ -174,27 +174,24 @@ export default function BudgetInfo({ budget, monthlyExpenses, yearlyExpenses, si
         <Card sx={{width: "400px", border: "3px solid #1769aa"}}>
             <CardHeader 
             action={
-                    <>
-                    <Tooltip title={<Typography fontSize={15}>Last ned Budsjett</Typography>} placement="top">
-                    {/* <IconButton onClick={() => sendToView(budget.id)}>
-                        <VisibilityOutlined />
-                    </IconButton> */}
-                    <PDFDownloadLink className='nostylelink' document={documentTemplate} fileName={`Budsjett ${budget?.title}`}>
-                      {({loading}) => (loading ? <IconButton disabled>Vent på nedlastning</IconButton> : <IconButton><CloudDownload /></IconButton>)}
-                    </PDFDownloadLink>
-                    </Tooltip>
-                    <Tooltip title={<Typography fontSize={15}>Rediger Budsjett</Typography>} placement="top">
-                    <IconButton onClick={() => sendToEdit(budget.id)}>
-                        <EditOutlined />
-                    </IconButton>
-                    </Tooltip>
-                    <Tooltip title={<Typography fontSize={15}>Slett Budsjett</Typography>} placement="top">
-                    <IconButton onClick={() => sendToDelete(budget.id)}>
-                    <DeleteOutlined />
-                    </IconButton>
-                    </Tooltip>
-                    </>
-                }
+              <>
+                <Tooltip title={<Typography fontSize={15}>Last ned Budsjett</Typography>} placement="top">
+                <PDFDownloadLink className='nostylelink' document={documentTemplate} fileName={`Budsjett ${budget?.title}`}>
+                  {({loading}) => (loading ? <IconButton disabled>Vent på nedlastning</IconButton> : <IconButton><CloudDownload /></IconButton>)}
+                </PDFDownloadLink>
+                </Tooltip>
+                <Tooltip title={<Typography fontSize={15}>Rediger Budsjett</Typography>} placement="top">
+                <IconButton onClick={() => sendToEdit(budget.id)}>
+                    <EditOutlined />
+                </IconButton>
+                </Tooltip>
+                <Tooltip title={<Typography fontSize={15}>Slett Budsjett</Typography>} placement="top">
+                <IconButton onClick={() => sendToDelete(budget.id)}>
+                <DeleteOutlined />
+                </IconButton>
+                </Tooltip>
+              </>
+            }
             title={`${budget?.title}`}
             />
             <Divider sx={{ borderBottomWidth: 3 }} />
