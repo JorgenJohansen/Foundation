@@ -59,7 +59,7 @@ export default function SoloBudget() {
   return (
     <Box sx={{margin: 10}}>
         <Button 
-            sx={{position: 'absolute', top: '80px', left: '50px'}} 
+            sx={{position: 'sticky', top: '90px', right: '20px'}} 
             variant="contained" 
             startIcon={<ArrowBack />}
             onClick={() => navigate(`/budsjetter`)}
