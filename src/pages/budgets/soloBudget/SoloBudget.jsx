@@ -7,9 +7,9 @@ import { useDocument } from '../../../hooks/useDocument';
 import { useSubCollection } from '../../../hooks/useSubCollection';
 import BudgetInfo from "./BudgetInfo";
 import CakeChart from "./PieChart";
-import MonthlyExpenses from "./expenses/MonthlyExpenses";
-import YearlyExpenses from "./expenses/YearlyExpenses";
-import SingleExpenses from "./expenses/SingleExpenses";
+import MonthlyExpenses from "./expenses/monthlyExpenses/MonthlyExpenses";
+import YearlyExpenses from "./expenses/yearlyExpenses/YearlyExpenses";
+import SingleExpenses from "./expenses/singleExpenses/SingleExpenses";
 import PropTypes from 'prop-types';
 import { useState } from "react";
 

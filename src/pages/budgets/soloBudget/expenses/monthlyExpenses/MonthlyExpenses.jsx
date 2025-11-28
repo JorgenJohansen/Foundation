@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import MonthlyExpensesList from "./MonthlyExpensesList";
 import MonthlyExpensesForm from "./MonthlyExpensesForm";
-import { useAuthContext } from "../../../../hooks/useAuthContext";
+import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
 
 export default function MontlyExpenses({expenses, budgetId}) {

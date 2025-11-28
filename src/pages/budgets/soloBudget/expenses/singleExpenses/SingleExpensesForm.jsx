@@ -4,7 +4,7 @@ import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typo
 
 import { useState } from "react";
 
-import { db, timestamp } from "../../../../firebase/config";
+import { db, timestamp } from "../../../../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -22,7 +22,7 @@ const classes = {
 }
 
 
-export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
+export default function SingleExpensesForm({user, setOpen, budgetId}) {
   const [title, setTitle] = useState('');
   const [expense, setExpense] = useState(0);
   const [category, setCategory] = useState();
@@ -62,7 +62,7 @@ export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
       return;
     }
 
-    const colRef = collection(db, 'budgets', budgetId, 'monthlyExpenses');
+    const colRef = collection(db, 'budgets', budgetId, 'singleExpenses');
 
     await addDoc(colRef, {
       createdAt: timestamp.fromDate(new Date()),
@@ -150,7 +150,7 @@ export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
             <Box width={200}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DemoContainer components={['DatePicker']}>
-                        <DatePicker label="Trekk dato" onChange={(date) => setDate(date)} />
+                        <DatePicker label="Kjøpsdato" onChange={(date) => setDate(date)} />
                     </DemoContainer>
                 </LocalizationProvider>
             </Box>

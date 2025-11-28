@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import SingleExpensesList from "./SingleExpensesList";
 import SingleExpensesForm from "./SingleExpensesForm";
-import { useAuthContext } from "../../../../hooks/useAuthContext";
+import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
 export default function SingleExpenses({expenses, budgetId}) {
 
