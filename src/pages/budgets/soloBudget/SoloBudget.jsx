@@ -67,7 +67,7 @@ export default function SoloBudget() {
         Dra tilbake
         </Button>
         
-        <Box sx={{display: 'flex', flexWrap: 'wrap', margin: 20}}>
+        <Box sx={{display: 'flex', flexWrap: 'wrap', margin: 2}}>
           <BudgetInfo budget={budget} monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
           <CakeChart monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
         </Box>
