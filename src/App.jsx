@@ -13,7 +13,7 @@ import Forgot from './pages/forgot/Forgot';
 import Terms from './pages/terms/Terms';
 import Privacy from './pages/privacy/Privacy';
 
-import Sleep from './pages/sleep/Sleep';
+import SleepOverview from './pages/sleep/SleepOverview';
 import Todos from './pages/todos/Todos';
 import Budgets from './pages/budgets/Budgets';
 
@@ -33,11 +33,12 @@ import DeleteSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpe
 
 
 
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Navbar />}>
         <Route element={<RequireAuth />}>
-          <Route path='/' element={<Sleep />} />
+          <Route path='/' element={<SleepOverview />} />
           <Route path='/todos' element={<Todos />} />
           <Route path='/todos/:id/rediger' element={<EditTodo />} />
           <Route path='/todos/:id/slett' element={<DeleteTodo />} />

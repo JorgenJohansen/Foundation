@@ -115,6 +115,6 @@ export default function SoloBudget() {
         <SingleExpenses expenses={singleExpenses} budgetId={id} />
       </CustomTabPanel>
     </Box>
-    </Box>
+  </Box>
   )
 }
