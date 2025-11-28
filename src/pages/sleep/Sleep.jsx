@@ -4,7 +4,7 @@ import { useCollection } from "../../hooks/useCollection";
 
 import { useState } from "react";
 import SleepForm from "./SleepForm";
-import { getWeek } from "../../util/getweek";
+import { getWeek } from "date-fns";
 import SleepInfo from "./SleepInfo";
 
 export default function Sleep() {
@@ -13,8 +13,7 @@ export default function Sleep() {
     const date = new Date().toLocaleDateString();
     const { user } = useAuthContext();
     const { documents: sleep } = useCollection('sleep', ['uid', '==', user?.uid], ['createdAt', 'desc'], ['date','==',date]);
-    console.log(sleep[0]);
-    const week = getWeek();
+    const week = getWeek(new Date(), { weekStartsOn: 1 });
 
 
     const toggleDrawer = (newOpen) => () => {
