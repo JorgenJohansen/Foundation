@@ -54,8 +54,6 @@ export default function EditBudget() {
 
     const dayjsStringFormat = `${year}-${month}-${day}`;
 
-    console.log(dayjsStringFormat);
-
     return dayjs(dayjsStringFormat);
   }
 
@@ -157,8 +155,6 @@ export default function EditBudget() {
             error={budgetError}
         />
 
-        {console.log(startDate)}
-        {console.log(endDate)}
         <Box display="flex" justifyContent="center" alignItems="center" marginTop={5} marginBottom={10}>
             {startDate && <Box width={200}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>

@@ -121,10 +121,6 @@ export default function BudgetInfo({ budget, monthlyExpenses, yearlyExpenses, si
     return `${day}.`;
   }
 
-  for(let i in monthlyExpenses){
-    console.log(convertToDay(monthlyExpenses[i].date.seconds));
-  }
-
   const documentTemplate = 
   <Document>
     <Page>
