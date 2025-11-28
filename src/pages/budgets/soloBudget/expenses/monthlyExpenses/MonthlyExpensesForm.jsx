@@ -66,7 +66,7 @@ export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
 
     await addDoc(colRef, {
       createdAt: timestamp.fromDate(new Date()),
-      title,
+      title: title.trim(),
       expense,
       category,
       date: new Date(date),
