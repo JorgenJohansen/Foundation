@@ -105,7 +105,7 @@ export default function SingleExpensesList({expenses}) {
                       Kategori: {expense.category}
                     </Typography>
                     <Typography variant="h6" color="textSecondary" margin={1}>
-                        Dato: {convertToDateString(expense.date.seconds)}
+                        Kjøpsdato: {convertToDateString(expense.date.seconds)}
                     </Typography>
                     
                 </CardContent>

@@ -50,10 +50,18 @@ export default function MonthlyExpensesList({expenses}) {
         defaultView = false;
     }
 
-    const convertToDateString = (timestamp) => {
-        const date = new Date(timestamp * 1000);
+    const convertToDay = (timestamp) => {
+        let date = new Date(timestamp * 1000);
+        let dateString = date.toLocaleDateString();
+        let dateSplit = dateString.split('.');
 
-        return date.toLocaleDateString();
+        let day = dateSplit[0];
+
+        if(day[0] === "0"){
+        day = day[1];
+        }
+
+        return `${day}.`;
     }
 
   return (
@@ -105,7 +113,7 @@ export default function MonthlyExpensesList({expenses}) {
                       Kategori: {expense.category}
                     </Typography>
                     <Typography variant="h6" color="textSecondary" margin={1}>
-                        Dato: {convertToDateString(expense.date.seconds)}
+                        Trekkes: {convertToDay(expense.date.seconds)} hver mnd.
                     </Typography>
                     
                 </CardContent>

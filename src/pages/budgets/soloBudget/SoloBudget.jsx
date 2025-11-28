@@ -48,9 +48,9 @@ export default function SoloBudget() {
     const navigate = useNavigate();
 
     const { document: budget} = useDocument('budgets', id);
-    const { documents: monthlyExpenses } = useSubCollection('budgets', id, 'monthlyExpenses');
-    const { documents: yearlyExpenses } = useSubCollection('budgets', id, 'yearlyExpenses');
-    const { documents: singleExpenses } = useSubCollection('budgets', id, 'singleExpenses');
+    const { documents: monthlyExpenses } = useSubCollection('budgets', id, 'monthlyExpenses', ['createdAt','desc']);
+    const { documents: yearlyExpenses } = useSubCollection('budgets', id, 'yearlyExpenses', ['createdAt','desc']);
+    const { documents: singleExpenses } = useSubCollection('budgets', id, 'singleExpenses', ['createdAt','desc']);
 
     const [value, setValue] = useState(0);
     const handleChange = (event, newValue) => {
