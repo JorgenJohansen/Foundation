@@ -179,6 +179,7 @@ export default function Navbar() {
                 </Button>
                 </Box>
                 <List >
+                    
                     {!user && menuItems.map(item => (
                         <div key={item.id} >
                             <ListItem 
@@ -200,6 +201,31 @@ export default function Navbar() {
                     >
                         <ListItemText sx={{textWrap:'nowrap'}} primary={`Hei, ${getFirstName(user?.displayname)}`}/>
                         <Person />
+                    </ListItem>}
+                    {user && <ListItem 
+                        button="true"
+                        sx={classes.mobileListItem}
+                        key={"logg-ut"}
+                        onClick={() => closeAndNavigate('/')}
+                    >
+                        <ListItemText primary={"Søvn"}/>
+                    </ListItem>}
+                    {user && <ListItem 
+                        button="true"
+                        sx={classes.mobileListItem}
+                        key={"logg-ut"}
+                        onClick={() => closeAndNavigate('/todos')}
+                    >
+                        <ListItemText primary={"Todos"}/>
+                    </ListItem>}
+                    
+                    {user && <ListItem 
+                        button="true"
+                        sx={classes.mobileListItem}
+                        key={"logg-ut"}
+                        onClick={() => closeAndNavigate('/budsjetter')}
+                    >
+                        <ListItemText primary={"Budsjetter"}/>
                     </ListItem>}
                     {user && <ListItem 
                         button="true"
