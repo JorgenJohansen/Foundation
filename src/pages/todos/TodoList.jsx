@@ -72,7 +72,7 @@ export default function TodoList({todos}) {
         {todos?.map(todo => (
             <Grid2 item="true" key={todo.id} >
 
-            <Card sx={{width: "400px", border: "3px solid #1769aa"}}>
+            <Card sx={{width: "400px", border: todo?.done ? "3px solid #50C878" : "3px solid #1769aa"}}>
                 <CardHeader 
                 action={
                     <>
@@ -95,6 +95,7 @@ export default function TodoList({todos}) {
                     <Typography variant="h6" color="textSecondary" margin={1}>
                         {todo.description}
                     </Typography>
+                    {todo?.done && <Typography variant="h6" color="textSecondary" margin={1}>(Ferdig)</Typography>}
                 </CardContent>
             </Card>
             </Grid2>
