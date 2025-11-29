@@ -129,7 +129,7 @@ export default function DeleteBudget() {
       
       <ButtonGroup>
       <Button sx={{marginRight: 3}} variant="contained" onClick={() => navigate("/budsjetter")}>Dra tilbake</Button>
-      <Button variant="contained" color="error" onClick={handleDelete}>Slett gruppe</Button>
+      <Button variant="contained" color="error" onClick={handleDelete}>Slett Budsjett</Button>
       </ButtonGroup>
   </Box>
   )
