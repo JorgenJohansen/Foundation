@@ -34,8 +34,10 @@ export default function SleepCharts({dates}) {
 
         let sleepCount;
 
-        if(date1.getHours() >= 21 || date1.getHours() <= 24){
+        if(date1.getHours() >= 20 && date1.getHours() <= 24){
             sleepCount = 24 - date1.getHours() + date2.getHours();
+        }else {
+            sleepCount = date2.getHours() - date1.getHours();
         }
 
         return sleepCount;
@@ -115,17 +117,17 @@ export default function SleepCharts({dates}) {
     const options = {};
 
   return (
-    <>
-    <Box sx={{width: 800, height: 400}}>
+    <Box display={"flex"} flexWrap={"wrap"}>
+    <Box sx={{width: 800, height: 400, margin: 10}}>
         <Bar options={options} data={barChartSleepCountData}/>
     </Box>
-    <Box sx={{width: 800, height: 400}}>
+    <Box sx={{width: 800, height: 400, margin: 10}}>
         <Bar options={options} data={barChartEnergyLevelData}/>
     </Box>
-    <Box sx={{width: 800, height: 400}}>
+    <Box sx={{width: 800, height: 400, margin: 10}}>
         <Bar options={options} data={barChartSleepQualityData}/>
     </Box>
     
-    </>
+    </Box>
   )
 }

@@ -11,7 +11,7 @@ const classes = {
       marginTop: 3,
       marginBottom: 3,
       display: 'block',
-      width: 150
+      width: 200
     },
 }
 
@@ -70,9 +70,10 @@ export default function SleepStats() {
                 <Box
                     display="flex"
                     flexDirection="column"
-                    justifyContent="center"
-                    alignItems="center"
+                    // justifyContent="center"
+                    // alignItems="center"
                     minHeight="40vh"
+                    marginLeft="10px"
                 >
                 <Typography  
                     variant="h6" 
