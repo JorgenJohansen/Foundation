@@ -104,7 +104,7 @@ export default function TodoList({todos}) {
 
         { listView && <List>
             {todos?.map(todo => (
-                <ListItem sx={{width: 400, border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
+                <ListItem sx={{width: 400,  border: todo?.done ? "3px solid #50C878" : "3px solid #1769aa", borderRadius: 2, marginY: 2}}
                     key={todo.id}
                     secondaryAction={
                         <Box display="flex" justifyContent="center" alignItems="center">
