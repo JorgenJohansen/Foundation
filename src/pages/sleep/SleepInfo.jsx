@@ -28,7 +28,7 @@ export default function SleepInfo({sleep}) {
         return `Du sov ${sleepCount} timer i natt.`
     }
   return (
-    <Box sx={{marginY: 10}}>
+    <Box sx={{marginY: 10, marginLeft: -20}}>
         <Card sx={{width: "400px", border: "3px solid #1769aa"}}>
             <CardHeader 
             

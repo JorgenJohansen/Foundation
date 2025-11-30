@@ -83,7 +83,7 @@ export default function SleepCharts({dates}) {
                 label: 'Energinivå',
                 data: generateEnergyLevelData(),
                 backgroundColor: [
-                    "#2196f3"
+                    "#50C878"
                 ]
             }
         ]
@@ -96,7 +96,7 @@ export default function SleepCharts({dates}) {
                 label: 'Søvnkvalitet',
                 data: generateSleepQualityData(),
                 backgroundColor: [
-                    "#2196f3"
+                    "#ba55d3"
                 ]
             }
         ]
@@ -117,7 +117,7 @@ export default function SleepCharts({dates}) {
     const options = {};
 
   return (
-    <Box display={"flex"} flexWrap={"wrap"}>
+    <Box display={"flex"} flexWrap={"wrap"} marginLeft={-30} marginY={-30}>
     <Box sx={{width: 800, height: 400, margin: 10}}>
         <Bar options={options} data={barChartSleepCountData}/>
     </Box>
