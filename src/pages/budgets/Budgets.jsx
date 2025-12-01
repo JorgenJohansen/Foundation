@@ -17,8 +17,6 @@ export default function Budgets() {
 
     const { documents: budgets } = useCollection('budgets', ['uid','==',user?.uid],['createdAt','desc']);
 
-    console.log(budgets);
-
   return (
     <Box sx={{margin: 10}}>
         <Typography variant="h5" sx={{marginY: 5}}>Her kan du holde oversikt over dine budsjetter:</Typography>

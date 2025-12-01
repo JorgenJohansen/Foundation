@@ -25,8 +25,6 @@ ChartJS.register(
 
 export default function SleepCharts({dates}) {
 
-    console.log(dates);
-
     const calculateSleepTime = (timestamp1, timestamp2) => {
 
         const date1 = new Date(timestamp1 * 1000);
@@ -117,14 +115,14 @@ export default function SleepCharts({dates}) {
     const options = {};
 
   return (
-    <Box display={"flex"} flexWrap={"wrap"} marginLeft={-30} marginY={-30}>
-    <Box sx={{width: 800, height: 400, margin: 10}}>
+    <Box display={"flex"} flexWrap={"wrap"} marginLeft={-20} >
+    <Box sx={{width: 800, height: 400, margin: 2}}>
         <Bar options={options} data={barChartSleepCountData}/>
     </Box>
-    <Box sx={{width: 800, height: 400, margin: 10}}>
+    <Box sx={{width: 800, height: 400, margin: 2}}>
         <Bar options={options} data={barChartEnergyLevelData}/>
     </Box>
-    <Box sx={{width: 800, height: 400, margin: 10}}>
+    <Box sx={{width: 800, height: 400, margin: 2}}>
         <Bar options={options} data={barChartSleepQualityData}/>
     </Box>
     

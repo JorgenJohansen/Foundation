@@ -73,7 +73,7 @@ export default function SleepStats() {
                     // justifyContent="center"
                     // alignItems="center"
                     minHeight="40vh"
-                    marginLeft="10px"
+                    marginLeft="-40px"
                 >
                 <Typography  
                     variant="h6" 

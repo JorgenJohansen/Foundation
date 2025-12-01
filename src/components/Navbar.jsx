@@ -205,7 +205,7 @@ export default function Navbar() {
                     {user && <ListItem 
                         button="true"
                         sx={classes.mobileListItem}
-                        key={"logg-ut"}
+                        key={"sovn"}
                         onClick={() => closeAndNavigate('/')}
                     >
                         <ListItemText primary={"Søvn"}/>
@@ -213,7 +213,7 @@ export default function Navbar() {
                     {user && <ListItem 
                         button="true"
                         sx={classes.mobileListItem}
-                        key={"logg-ut"}
+                        key={"todos"}
                         onClick={() => closeAndNavigate('/todos')}
                     >
                         <ListItemText primary={"Todos"}/>
@@ -222,7 +222,7 @@ export default function Navbar() {
                     {user && <ListItem 
                         button="true"
                         sx={classes.mobileListItem}
-                        key={"logg-ut"}
+                        key={"budsjetter"}
                         onClick={() => closeAndNavigate('/budsjetter')}
                     >
                         <ListItemText primary={"Budsjetter"}/>
