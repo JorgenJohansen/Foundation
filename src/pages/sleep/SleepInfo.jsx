@@ -7,7 +7,12 @@ export default function SleepInfo({sleep}) {
     const convertToTime = (timestamp) => {
         const date = new Date(timestamp * 1000);
         const hours = date.getHours();
-        const minutes = '0' + date.getMinutes();
+        let minutes;
+        if(date.getMinutes().toString().length < 2){
+            minutes = '0' + date.getMinutes();
+        }else{
+            minutes = date.getMinutes();
+        }
 
         return `${hours}:${minutes}`;
     }
@@ -20,9 +25,9 @@ export default function SleepInfo({sleep}) {
         let sleepCount;
 
         if(date1.getHours() >= 20 && date1.getHours() <= 24){
-            sleepCount = 24 - date1.getHours() + date2.getHours();
+            sleepCount = 24 - date1.getHours() - date1.getMinutes()/60 + date2.getHours() + date2.getMinutes()/60;
         }else {
-            sleepCount = date2.getHours() - date1.getHours();
+            sleepCount = date2.getHours() + date2.getMinutes()/60 - date1.getHours() - date1.getMinutes()/60;
         }
 
         return `Du sov ${sleepCount} timer i natt.`

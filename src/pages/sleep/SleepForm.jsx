@@ -9,7 +9,7 @@ import { addDoc, collection } from "firebase/firestore";
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import {nb} from 'date-fns/locale';
+import {nb} from 'date-fns/locale/nb';
 import { TimePicker } from "@mui/x-date-pickers";
 
 const classes = {
@@ -79,17 +79,7 @@ export default function SleepForm({user, date, week, setOpen}) {
             sleepQuality: sleepQuality,
             energyLevel: energyLevel,
             uid: user?.uid,
-        })
-        // console.log({
-        //     createdAt: timestamp.fromDate(new Date()),
-        //     date: date,
-        //     week: week,
-        //     sleepTime: sleepTime,
-        //     awakeTime: awakeTime,
-        //     sleepQuality: sleepQuality,
-        //     energyLevel: energyLevel,
-        //     uid: user?.uid,
-        // })
+        });
 
         setOpen(false);
     }
@@ -142,13 +132,13 @@ export default function SleepForm({user, date, week, setOpen}) {
                 <Box display="flex" justifyContent="center" alignItems="center" marginTop={5} marginBottom={10}>
 
                     <Box width={200}>
-                        <LocalizationProvider dateAdapter={AdapterDateFns} locale={nb}>
+                        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={nb}>
                             <TimePicker renderInput={(props) => <TextField {...props} variant="outlined" />} label="Når la du deg?" value={sleepTime} onChange={(newTime) => setSleepTime(newTime)} />
                         </LocalizationProvider>
                     </Box>
                     
                     <Box width={200}>
-                        <LocalizationProvider dateAdapter={AdapterDateFns} locale={nb}>
+                        <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={nb}>
                             <TimePicker renderInput={(props) => <TextField {...props} variant="outlined" />} label="Når stod du opp" value={awakeTime} onChange={(newTime) => setAwakeTime(newTime)} />
                         </LocalizationProvider>
                     </Box>
