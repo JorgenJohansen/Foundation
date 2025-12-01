@@ -20,9 +20,9 @@ export default function YearlyExpenses({expenses, budgetId}) {
   
   return (
     <Box sx={{margin: 10}}>
-      <Typography variant="h5" sx={{marginY: 5}}>Her kan du holde oversikt over dine årlige kostnader.</Typography>
+      <Typography variant="h5" sx={{marginY: 5, width: 300}}>Her kan du holde oversikt over dine årlige kostnader.</Typography>
       <Button 
-    sx={{width: 200, marginBottom: 5}}
+    sx={{width: 300, marginBottom: 5}}
     type="submit" 
     color="primary" 
     variant="contained"

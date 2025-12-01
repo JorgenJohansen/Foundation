@@ -17,7 +17,7 @@ const classes = {
       marginTop: 3,
       marginBottom: 3,
       display: 'block',
-      width: 400
+      width: 300
     },
 }
 
@@ -121,7 +121,7 @@ export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
             error={expenseError}
         />
 
-        <Box sx={{ minWidth: 120 }}>
+        <Box sx={{ minWidth: 200 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Kategori</InputLabel>
         <Select
@@ -161,7 +161,7 @@ export default function MonthlyExpensesForm({user, setOpen, budgetId}) {
         
         
         <Button 
-        sx={{width: 400}}
+        sx={{width: 300}}
         type="submit" 
         color="primary" 
         variant="contained"
