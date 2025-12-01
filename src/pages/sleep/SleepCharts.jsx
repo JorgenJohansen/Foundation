@@ -35,9 +35,9 @@ export default function SleepCharts({dates}) {
         let sleepCount;
 
         if(date1.getHours() >= 20 && date1.getHours() <= 24){
-            sleepCount = 24 - date1.getHours() + date2.getHours();
+            sleepCount = 24 - date1.getHours() - date1.getMinutes()/60 + date2.getHours() + date2.getMinutes()/60;
         }else {
-            sleepCount = date2.getHours() - date1.getHours();
+            sleepCount = date2.getHours() + date2.getMinutes()/60 - date1.getHours() - date1.getMinutes()/60;
         }
 
         return sleepCount;
