@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { Box, Card, CardContent, CardHeader, Divider, Grid2, IconButton, List, ListItem, ListItemText, Tooltip, Typography } from "@mui/material";
-import { DeleteOutlined, EditOutlined, Payment, ViewList } from "@material-ui/icons";
+import { Check, DeleteOutlined, EditOutlined, Payment, ViewList } from "@material-ui/icons";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -76,6 +76,11 @@ export default function TodoList({todos}) {
                 <CardHeader 
                 action={
                     <>
+                    {todo?.done && <Tooltip title={<Typography fontSize={15}>Todo er ferdig</Typography>} placement="top">
+                    <IconButton>
+                        <Check/>
+                    </IconButton>
+                    </Tooltip>}
                     <Tooltip title={<Typography fontSize={15}>Rediger Todo</Typography>} placement="top">
                     <IconButton onClick={() => sendToEdit(todo.id)}>
                         <EditOutlined />
@@ -95,7 +100,7 @@ export default function TodoList({todos}) {
                     <Typography variant="h6" color="textSecondary" margin={1}>
                         {todo.description}
                     </Typography>
-                    {todo?.done && <Typography variant="h6" color="textSecondary" margin={1}>(Ferdig)</Typography>}
+        
                 </CardContent>
             </Card>
             </Grid2>
