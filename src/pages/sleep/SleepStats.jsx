@@ -22,6 +22,7 @@ export default function SleepStats() {
     const [week, setWeek] = useState(weekFromDateFns);
     const [year, setYear] = useState(yearCalculated);
     const [dates, setDates] = useState([]);
+    const [hasSearched, setHasSearched] = useState(false);
 
     const [weekError, setWeekError] = useState(false);
     const [yearError, setYearError] = useState(false);
@@ -62,6 +63,7 @@ export default function SleepStats() {
         });
 
         setDates(results);
+        setHasSearched(true);
     }
   return (
     <Box>
@@ -125,6 +127,7 @@ export default function SleepStats() {
             </form>
 
             {dates?.length > 0 && <SleepCharts dates={dates} />}
+            {hasSearched && dates?.length === 0 && <Typography variant="h5" sx={{marginLeft: -10, marginY: -10}}>Det er ikke registrert noe data for uke {week} i {year}</Typography>}
     </Box>
   )
 }
