@@ -10,7 +10,7 @@ import {
     Tooltip,
     Legend
 } from "chart.js"
-import { Box } from '@mui/material';
+import { Box, Grid2 } from '@mui/material';
 
 ChartJS.register(
     CategoryScale, 
@@ -115,17 +115,26 @@ export default function SleepCharts({dates}) {
     const options = {};
 
   return (
-    <Box display={"flex"} flexWrap={"wrap"} marginLeft={-20} >
-    <Box sx={{width: 800, height: 400, margin: 2}}>
-        <Bar options={options} data={barChartSleepCountData}/>
-    </Box>
-    <Box sx={{width: 800, height: 400, margin: 2}}>
-        <Bar options={options} data={barChartEnergyLevelData}/>
-    </Box>
-    <Box sx={{width: 800, height: 400, margin: 2}}>
-        <Bar options={options} data={barChartSleepQualityData}/>
-    </Box>
+    <Grid2 container spacing={2} sx={{marginLeft: -20}}  >
+        <Grid2 item="true" key={"sleepCount"}>
+            <Box sx={{width: 800, height: 400, margin: 2}}>
+                <Bar options={options} data={barChartSleepCountData}/>
+            </Box>
+        </Grid2>
+        <Grid2 item="true" key={"energyLevel"}>
+            <Box sx={{width: 800, height: 400, margin: 2}}>
+                <Bar options={options} data={barChartEnergyLevelData}/>
+            </Box>
+        </Grid2>
+        <Grid2 item="true" key={"sleepQuality"}>
+            <Box sx={{width: 800, height: 400, margin: 2}}>
+                <Bar options={options} data={barChartSleepQualityData}/>
+            </Box>
+        </Grid2>
     
-    </Box>
+    
+    
+    
+    </Grid2>
   )
 }
