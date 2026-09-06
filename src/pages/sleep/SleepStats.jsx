@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, List, ListItem, ListItemText, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
@@ -74,7 +74,7 @@ export default function SleepStats() {
                     flexDirection="column"
                     // justifyContent="center"
                     // alignItems="center"
-                    minHeight="40vh"
+                    minHeight="20vh"
                     marginLeft="-40px"
                 >
                 <Typography  
@@ -127,7 +127,12 @@ export default function SleepStats() {
             </form>
 
             {dates?.length > 0 && <SleepCharts dates={dates} />}
-            {hasSearched && dates?.length === 0 && <Typography variant="h5" sx={{marginLeft: -10, marginY: -10}}>Det er ikke registrert noe data for uke {week} i {year}</Typography>}
+        
+            {hasSearched && dates?.length === 0 && <List>
+                <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginX:-20}} key={"message"}>
+                    <ListItemText primary={`Det er ikke registrert noe søvndata for uke ${week} i år ${year}`} />
+                </ListItem>
+            </List>}
     </Box>
   )
 }
