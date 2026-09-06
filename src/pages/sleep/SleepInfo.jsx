@@ -42,13 +42,13 @@ export default function SleepInfo({sleep}) {
             <Divider sx={{ borderBottomWidth: 3 }} />
             <CardContent>
                 <Typography variant="h6" color="textSecondary" margin={1}>
-                    Du la deg: {convertToTime(sleep.sleepTime.seconds)}
+                    Du la deg: {convertToTime(sleep.sleepTime?.seconds)}
                 </Typography>
                 <Typography variant="h6" color="textSecondary" margin={1}>
-                    Du stod opp: {convertToTime(sleep.awakeTime.seconds)}
+                    Du stod opp: {convertToTime(sleep.awakeTime?.seconds)}
                 </Typography>
                 <Typography variant="h6" color="textSecondary" margin={1}>
-                    {calculateSleepTime(sleep.sleepTime.seconds, sleep.awakeTime.seconds)}
+                    {calculateSleepTime(sleep.sleepTime?.seconds, sleep.awakeTime?.seconds)}
                 </Typography>
                 <Typography variant="h6" color="textSecondary" margin={1}>
                     Søvnkvalitet: {sleep.sleepQuality}

@@ -16,6 +16,7 @@ import Privacy from './pages/privacy/Privacy';
 import SleepOverview from './pages/sleep/SleepOverview';
 import Todos from './pages/todos/Todos';
 import Budgets from './pages/budgets/Budgets';
+import DiaryEditForm from './pages/sleep/DiaryEditForm'
 
 import EditTodo from './pages/todos/EditTodo';
 import DeleteTodo from './pages/todos/DeleteTodo';
@@ -39,6 +40,7 @@ const router = createBrowserRouter(
     <Route path='/' element={<Navbar />}>
         <Route element={<RequireAuth />}>
           <Route path='/' element={<SleepOverview />} />
+          <Route path='/dagbok/:id/rediger' element={<DiaryEditForm />} />
           <Route path='/todos' element={<Todos />} />
           <Route path='/todos/:id/rediger' element={<EditTodo />} />
           <Route path='/todos/:id/slett' element={<DeleteTodo />} />

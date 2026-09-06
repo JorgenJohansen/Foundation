@@ -6,6 +6,8 @@ import SleepStats from "./SleepStats";
 import PropTypes from 'prop-types';
 import { useState } from "react";
 import { BarChart, SingleBed } from "@material-ui/icons";
+import Diary from "./Diary";
+import DiarySearch from "./DiarySearch";
 
 
 function CustomTabPanel(props) {
@@ -75,6 +77,18 @@ export default function SleepOverview() {
             </Badge>
             
             } label="Søvn statistikk" {...a11yProps(1)} />
+          <Tab icon={
+            <Badge color="primary">
+              <BarChart />
+            </Badge>
+            
+            } label="Dagbok" {...a11yProps(2)} />
+          <Tab icon={
+            <Badge color="primary">
+              <BarChart />
+            </Badge>
+            
+            } label="Søk Dagbøker" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
@@ -82,6 +96,12 @@ export default function SleepOverview() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <SleepStats />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={2}>
+        <Diary />
+      </CustomTabPanel>
+      <CustomTabPanel value={value} index={3}>
+        <DiarySearch />
       </CustomTabPanel>
     </Box>
   </Box>
