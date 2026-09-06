@@ -30,7 +30,7 @@ export default function SleepInfo({sleep}) {
             sleepCount = date2.getHours() + date2.getMinutes()/60 - date1.getHours() - date1.getMinutes()/60;
         }
 
-        return `Du sov ${sleepCount} timer i natt.`
+        return `Du sov ${Math.round(sleepCount)} timer i natt.`
     }
   return (
     <Box sx={{marginY: 10, marginLeft: -20}}>

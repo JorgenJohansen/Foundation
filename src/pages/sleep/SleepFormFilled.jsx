@@ -22,11 +22,11 @@ const classes = {
 }
 
 
-export default function SleepForm({user, date, week, setOpen}) {
-    const [sleepTime, setSleepTime] = useState('');
-    const [awakeTime, setAwakeTime] = useState('');
-    const [sleepQuality, setSleepQuality] = useState(0);
-    const [energyLevel, setEnergyLevel] = useState(0);
+export default function SleepFormFilled({user, date, week, sleepTimeInput, awakeTimeInput, sleepQualityInput, energyLevelInput, setOpen2}) {
+    const [sleepTime, setSleepTime] = useState(sleepTimeInput);
+    const [awakeTime, setAwakeTime] = useState(awakeTimeInput);
+    const [sleepQuality, setSleepQuality] = useState(sleepQualityInput);
+    const [energyLevel, setEnergyLevel] = useState(energyLevelInput);
 
     const [sleepTimeError, setSleepTimeError] = useState(false);
     const [awakeTimeError, setAwakeTimeError] = useState(false);
@@ -43,6 +43,8 @@ export default function SleepForm({user, date, week, setOpen}) {
         const dateList = date1.split(".");
         return `${dateList[0]}.${dateList[1]}.${dateList[2]}`
     }
+
+    
     
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -86,8 +88,11 @@ export default function SleepForm({user, date, week, setOpen}) {
             uid: user?.uid,
         });
 
-        setOpen(false);
+        setOpen2(false);
     }
+
+    console.log(new Date(awakeTime.seconds * 1000))
+    console.log(sleepTime)
 
     return (
         <div>
@@ -115,6 +120,7 @@ export default function SleepForm({user, date, week, setOpen}) {
             
                 <TextField 
                     type="number"
+                    value={sleepQuality}
                     onChange={(e) => setSleepQuality(e.target.value)}
                     sx={classes.field}
                     label="Registrer din søvnkvalitet(1-5)"
@@ -127,6 +133,7 @@ export default function SleepForm({user, date, week, setOpen}) {
                 {sleepQualityError && <Typography sx={{marginBottom: 2, color: 'red', border: '2px solid red', borderRadius: 10, padding: 2}}>Søvn kvalitet må være mellom 1 og 5.</Typography>}
                 <TextField 
                     type="number"
+                    value={energyLevel}
                     onChange={(e) => setEnergyLevel(e.target.value)}
                     sx={classes.field}
                     label="Registrer ditt energinivå(1-5)"
@@ -142,13 +149,13 @@ export default function SleepForm({user, date, week, setOpen}) {
 
                     <Box width={200}>
                         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={nb}>
-                            <TimePicker renderInput={(props) => <TextField {...props} variant="outlined" />} label="Når la du deg?" value={sleepTime} onChange={(newTime) => setSleepTime(newTime)} />
+                            <TimePicker renderInput={(props) => <TextField {...props} variant="outlined" />} label="Når la du deg?" value={new Date(sleepTime?.seconds * 1000)} onChange={(newTime) => setSleepTime(newTime)} />
                         </LocalizationProvider>
                     </Box>
                     
                     <Box width={200}>
                         <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={nb}>
-                            <TimePicker renderInput={(props) => <TextField {...props} variant="outlined" />} label="Når stod du opp" value={awakeTime} onChange={(newTime) => setAwakeTime(newTime)} />
+                            <TimePicker renderInput={(props) => <TextField {...props} variant="outlined" />} label="Når stod du opp" value={new Date(awakeTime?.seconds * 1000)} onChange={(newTime) => setAwakeTime(newTime)} />
                         </LocalizationProvider>
                     </Box>
                 </Box>
@@ -171,7 +178,7 @@ export default function SleepForm({user, date, week, setOpen}) {
                 type="submit" 
                 color="primary" 
                 variant="contained"
-                onClick={() => setOpen(false)}
+                onClick={() => setOpen2(false)}
                 >
                 Lukk skjema
                 </Button>

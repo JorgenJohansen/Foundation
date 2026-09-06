@@ -38,7 +38,7 @@ export default function SleepCharts({dates}) {
             sleepCount = date2.getHours() + date2.getMinutes()/60 - date1.getHours() - date1.getMinutes()/60;
         }
 
-        return sleepCount;
+        return Math.round(sleepCount);
     }
 
     const generateSleepCountData = () => {
