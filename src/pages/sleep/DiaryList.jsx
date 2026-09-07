@@ -1,26 +1,18 @@
 /* eslint-disable react/prop-types */
 
 import { Box, Card, CardContent, CardHeader, Divider, Grid2, IconButton, List, ListItem, ListItemText, Tooltip, Typography } from "@mui/material";
-import { Check, DeleteOutlined, EditOutlined, Payment, ViewList } from "@material-ui/icons";
+import { Payment, ViewList } from "@material-ui/icons";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-export default function TodoList({diaries}) {
+export default function DiaryList({diaries}) {
 
-    const todoView = JSON.parse(localStorage.getItem('todoView'));
+    const diaryView = JSON.parse(localStorage.getItem('diaryView'));
 
-    const [listView, setListView] = useState(todoView?.listView);
-    const [cardView, setCardView] = useState(todoView?.cardView);
+    const [listView, setListView] = useState(diaryView?.listView);
+    const [cardView, setCardView] = useState(diaryView?.cardView);
 
-    const navigate = useNavigate();
-
-    const sendToDelete = (id) => {
-        navigate(`/todos/${id}/slett`);
-    }
-    const sendToEdit = (id) => {
-        navigate(`/todos/${id}/rediger`);
-    }
+    
 
     const changeListView = () => {
         setListView(true);
@@ -29,7 +21,7 @@ export default function TodoList({diaries}) {
             listView: true,
             cardView: false,
         }
-        localStorage.setItem('todoView', JSON.stringify(view));
+        localStorage.setItem('diaryView', JSON.stringify(view));
     }
 
     const changeCardView = () => {
@@ -39,7 +31,7 @@ export default function TodoList({diaries}) {
             listView: false,
             cardView: true,
         }
-        localStorage.setItem('todoView', JSON.stringify(view));
+        localStorage.setItem('diaryView', JSON.stringify(view));
     }
 
     let defaultView;

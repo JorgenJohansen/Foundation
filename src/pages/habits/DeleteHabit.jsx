@@ -4,28 +4,28 @@ import { useDocument } from '../../hooks/useDocument';
 import { deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase/config";
 
-export default function DeleteTodo() {
+export default function DeleteHabit() {
     const { id } = useParams();
-    const { document: todo } = useDocument('todos', id);
+    const { document: habit } = useDocument('habit', id);
 
     const navigate = useNavigate();
 
-    const deleteTodo = async(id) => {
-        const docRef = doc(db,'todos', id);
+    const deleteHabit = async(id) => {
+        const docRef = doc(db,'habit', id);
 
         await deleteDoc(docRef);
 
-        navigate('/todos');
+        navigate('/vaner');
 
     }
 
   return (
     <>
     <Box sx={{margin: 20}}>
-        <Typography>Er du sikker du ønsker å slette Todo: {todo?.title}?</Typography>
+        <Typography>Er du sikker du ønsker å slette vane: {habit?.title}?</Typography>
         <ButtonGroup sx={{marginY: 2}}> 
-        <Button variant="contained" color="error" onClick={() => deleteTodo(todo.id)}>Slett Todo</Button>
-        <Button variant="contained" onClick={() => navigate('/todos')}>Dra tilbake</Button>
+        <Button variant="contained" color="error" onClick={() => deleteHabit(habit.id)}>Slett Vane</Button>
+        <Button variant="contained" onClick={() => navigate('/vaner')}>Dra tilbake</Button>
         </ButtonGroup>
     </Box>
     </>

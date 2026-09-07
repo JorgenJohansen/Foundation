@@ -32,8 +32,9 @@ import DeleteYearlyExpenses from './pages/budgets/soloBudget/expenses/yearlyExpe
 import EditSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpenses/EditSingleExpenses';
 import DeleteSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpenses/DeleteSingleExpenses';
 
-
-
+import Habits from './pages/habits/Habits';
+import EditHabit from './pages/habits/EditHabit';
+import DeleteHabit from './pages/habits/DeleteHabit';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -57,6 +58,10 @@ const router = createBrowserRouter(
 
           <Route path='/budsjetter/:id/enkeltKostnader/:id/rediger' element={<EditSingleExpenses />} />
           <Route path='/budsjetter/:id/enkeltKostnader/:id/slett' element={<DeleteSingleExpenses />} />
+          
+          <Route path='/vaner' element={<Habits />} />
+          <Route path='/vaner/:id/rediger' element={<EditHabit />} />
+          <Route path='/vaner/:id/slett' element={<DeleteHabit />} />
           
         </Route>
 
