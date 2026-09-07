@@ -16,7 +16,7 @@ const classes = {
     },
 }
 
-export default function TodoForm({user, setOpen}) {
+export default function HabitForm({user, setOpen}) {
 
     const [title, setTitle] = useState('');
     
@@ -83,7 +83,7 @@ export default function TodoForm({user, setOpen}) {
           color="primary" 
           variant="contained"
           >
-          Lag todo
+          Lag vane
           </Button>
           </Box>
       </form>

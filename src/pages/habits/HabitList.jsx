@@ -22,21 +22,21 @@ export default function HabitList({habits}) {
 
         <List>
             {habits?.map(habit => (
-                <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
+                <ListItem sx={{width: 400,  border: habit?.done ? "3px solid #50C878" : "3px solid #1769aa", borderRadius: 2, marginY: 2}}
                     key={habit.id}
                     secondaryAction={
                         <Box display="flex" justifyContent="center" alignItems="center">
                         
-                        <Tooltip title={<Typography fontSize={15}>Rediger Todo</Typography>} placement="top">
+                        {!habit.done && <Tooltip title={<Typography fontSize={15}>Rediger Vane</Typography>} placement="top">
                             <IconButton onClick={() => sendToEdit(habit.id)}>
                                 <EditOutlined />
                             </IconButton>
-                        </Tooltip>
-                        <Tooltip title={<Typography fontSize={15}>Slett Todo</Typography>} placement="top">
+                        </Tooltip>}
+                        {!habit.done && <Tooltip title={<Typography fontSize={15}>Slett Vane</Typography>} placement="top">
                             <IconButton onClick={() => sendToDelete(habit.id)}>
                                 <DeleteOutlined />
                             </IconButton>
-                        </Tooltip>
+                        </Tooltip>}
                         </Box>
                     }
                 >
