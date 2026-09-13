@@ -1,0 +1,55 @@
+/*For development*/
+.css-15fu35s-MuiDialogActions-root {
+    display: none !important;
+}
+
+.css-1cektp2-MuiButtonBase-root-MuiIconButton-root-MuiPickersToolbar-penIconButton {
+    display: none !important;
+}
+
+.css-1eurbeq-MuiPickersToolbar-root-MuiDatePickerToolbar-root {
+    display: none !important;
+}
+
+.css-1ttzd28-MuiDialogActions-root-MuiPickersLayout-actionBar {
+    display: none !important;
+}
+
+.css-6mw38q-MuiTypography-root {
+    visibility: hidden;
+    position: relative;
+}
+.css-6mw38q-MuiTypography-root:after {
+    visibility: visible;
+    content: 'PLANLEGGING';
+    margin-left: -80px;
+}
+
+.MuiBox-root .css-19kzrtu {
+    display: flex;
+    justify-content: left;
+}
+
+/*For deploying*/
+.css-17fix7a {
+    display: none !important;
+}
+
+.css-8mwzdy {
+    display: none !important;
+}
+
+.css-1baxj6e {
+    visibility: hidden;
+    position: relative;
+}
+.css-1baxj6e:after {
+    visibility: visible;
+    content: 'PLANLEGGING';
+    margin-left: -80px;
+}
+
+.MuiBox-root .css-19kzrtu {
+    display: flex;
+    justify-content: left;
+}

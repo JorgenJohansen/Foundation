@@ -35,6 +35,7 @@ import DeleteSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpe
 import Habits from './pages/habits/Habits';
 import EditHabit from './pages/habits/EditHabit';
 import DeleteHabit from './pages/habits/DeleteHabit';
+import Todo from './pages/todos/Todo';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,8 +44,9 @@ const router = createBrowserRouter(
           <Route path='/' element={<SleepOverview />} />
           <Route path='/dagbok/:id/rediger' element={<DiaryEditForm />} />
           <Route path='/todos' element={<Todos />} />
-          <Route path='/todos/:id/rediger' element={<EditTodo />} />
-          <Route path='/todos/:id/slett' element={<DeleteTodo />} />
+          <Route path='/todos/:id' element={<Todo />} />
+          <Route path='/todos/:id/rediger/:id' element={<EditTodo />} />
+          <Route path='/todos/:id/slett/:id' element={<DeleteTodo />} />
           <Route path='/budsjetter' element={<Budgets />} />
           <Route path='/budsjetter/:id' element={<SoloBudget />} />
           <Route path='/budsjetter/:id/rediger' element={<EditBudget />} />

@@ -4,7 +4,7 @@ import { Box, Card, CardContent, CardHeader, Divider, Grid2, IconButton, List, L
 import { Check, DeleteOutlined, EditOutlined, Payment, ViewList } from "@material-ui/icons";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function TodoList({todos}) {
 
@@ -15,11 +15,13 @@ export default function TodoList({todos}) {
 
     const navigate = useNavigate();
 
+    const {id: date} = useParams();
+
     const sendToDelete = (id) => {
-        navigate(`/todos/${id}/slett`);
+        navigate(`/todos/${date}/slett/${id}`);
     }
     const sendToEdit = (id) => {
-        navigate(`/todos/${id}/rediger`);
+        navigate(`/todos/${date}/rediger/${id}`);
     }
 
     const changeListView = () => {

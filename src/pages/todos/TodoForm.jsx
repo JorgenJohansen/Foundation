@@ -24,6 +24,8 @@ export default function TodoForm({user, setOpen}) {
     const [titleError, setTitleError] = useState(false);
     const [descriptionError, setDescriptionError] = useState(false);
 
+    const date = new Date().toLocaleDateString();
+
     const handleSubmit = async(e) => {
         e.preventDefault();
 
@@ -46,6 +48,7 @@ export default function TodoForm({user, setOpen}) {
             createdAt: timestamp.fromDate(new Date()),
             title: title.trim(),
             description: description.trim(),
+            date: date,
             done: false,
             uid: user?.uid,
         });

@@ -2,7 +2,7 @@ import { Box, Button, FormControlLabel, FormGroup, Switch, TextField, Typography
 import { useEffect, useState } from "react";
 import { db } from "../../firebase/config";
 import { doc, updateDoc } from "firebase/firestore";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDocument } from "../../hooks/useDocument";
 
 const classes = {
@@ -23,9 +23,13 @@ export default function EditTodo() {
     const [descriptionError, setDescriptionError] = useState(false);
 
     const navigate = useNavigate();
-    const { id } = useParams();
+    
+    const location = useLocation();
+    const locationSplit = location.pathname.split("/");
+    const date = locationSplit[2];
+    const todoId = locationSplit[4];
 
-    const { document: todo } = useDocument('todos', id);
+    const { document: todo } = useDocument('todos', todoId);
 
     useEffect(() => {
         setTitle(todo?.title);
@@ -48,14 +52,14 @@ export default function EditTodo() {
             return;
         }
 
-        const docRef = doc(db, 'todos', id);
+        const docRef = doc(db, 'todos', todoId);
         await updateDoc(docRef, {
             title: title.trim(),
             description: description.trim(),
             done
         });
 
-        navigate('/todos');
+        navigate(`/todos/${date}`);
     }
 
   return (
