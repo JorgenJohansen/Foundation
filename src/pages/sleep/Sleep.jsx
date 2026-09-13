@@ -49,16 +49,23 @@ export default function Sleep() {
             result.push({...doc.data(), id: doc.id});
         });
 
+        //console.log(result[0])
+
         return result[0]
     }, [user?.uid]);
 
     useEffect(() => {
       fetchPreviousDate().then(data => {
+        //console.log(data);
         setDateObj(data);
       })
     }, [fetchPreviousDate])
 
-    const {energyLevel, sleepQuality, awakeTime, sleepTime } = dateObj;
+    //console.log(dateObj);
+
+    
+    let { energyLevel, sleepQuality, awakeTime, sleepTime } = dateObj || {};
+
 
   return (
     <Box sx={{margin: 5}}>
@@ -92,7 +99,7 @@ export default function Sleep() {
           <SleepForm user={user} date={date} week={week} setOpen={setOpen} />
       </Drawer>}
 
-      {(sleep.length === 0) && dateObj && <Drawer anchor="bottom" open={open2} onClose={toggleDrawer2(false)}>
+      {(sleep.length === 0) && dateObj !== undefined && <Drawer anchor="bottom" open={open2} onClose={toggleDrawer2(false)}>
           <SleepFormFilled user={user} date={date} week={week} 
           energyLevelInput={+energyLevel} sleepQualityInput={+sleepQuality} 
           awakeTimeInput={awakeTime} sleepTimeInput={sleepTime}
