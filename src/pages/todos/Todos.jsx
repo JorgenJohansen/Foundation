@@ -6,8 +6,8 @@ import { useState } from 'react';
 import {nb} from 'date-fns/locale'
 
 import './Todos.css';
-import { Box, Button, IconButton, Typography } from '@mui/material';
-import { AddCircleOutline } from '@material-ui/icons';
+import { Box, Button, Typography } from '@mui/material';
+
 import { useNavigate } from 'react-router-dom';
 
 export default function Todos() {
