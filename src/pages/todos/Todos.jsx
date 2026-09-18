@@ -6,7 +6,7 @@ import { useState } from 'react';
 import {nb} from 'date-fns/locale'
 
 import './Todos.css';
-import { Box, IconButton, Typography } from '@mui/material';
+import { Box, Button, IconButton, Typography } from '@mui/material';
 import { AddCircleOutline } from '@material-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -20,9 +20,9 @@ export default function Todos() {
   }
 
   return (
-    <Box sx={{margin: 15}}>
+    <Box sx={{margin: 15, display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
     <Typography variant='h5'>Velg hvilken dag du ønsker å lage todos i.</Typography>
-    <Box sx={{marginLeft: -80}}>
+    <Box sx={{}}>
 
     <LocalizationProvider dateAdapter={AdapterDateFns} locale={nb}>
       <StaticDatePicker 
@@ -35,9 +35,18 @@ export default function Todos() {
       />
     </LocalizationProvider>
     </Box>
-      <IconButton sx={{marginLeft: 3, marginTop: -7}} onClick={navigateToDay} >
+      {/* <IconButton sx={{margin: 35}} onClick={navigateToDay} >
         <AddCircleOutline color='primary' fontSize='large' />
-      </IconButton>
+      </IconButton> */}
+      <Button 
+       onClick={navigateToDay}
+        sx={{width: 400, margin: 5}}
+        type="submit" 
+        color="primary" 
+        variant="contained"
+        >
+        Velg dagen {value.toLocaleDateString()}
+        </Button>
     </Box>
   )
 }
