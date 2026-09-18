@@ -122,6 +122,14 @@ export default function Navbar() {
                     >
                         <ListItemText primary={"Vaner"}/>
                     </ListItem>
+                    <ListItem
+                        button="true"
+                        sx={classes.listItem}
+                        key={"medier"}
+                        onClick={() => navigate("/medier")}
+                    >
+                        <ListItemText primary={"Medier"}/>
+                    </ListItem>
                 </List>
                 </Box>
                 
@@ -242,6 +250,14 @@ export default function Navbar() {
                         onClick={() => closeAndNavigate('/vaner')}
                     >
                         <ListItemText primary={"Vaner"}/>
+                    </ListItem>}
+                    {user && <ListItem 
+                        button="true"
+                        sx={classes.mobileListItem}
+                        key={"medier"}
+                        onClick={() => closeAndNavigate('/medier')}
+                    >
+                        <ListItemText primary={"Medier"}/>
                     </ListItem>}
                     {user && <ListItem 
                         button="true"

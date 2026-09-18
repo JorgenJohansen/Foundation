@@ -37,6 +37,10 @@ import EditHabit from './pages/habits/EditHabit';
 import DeleteHabit from './pages/habits/DeleteHabit';
 import Todo from './pages/todos/Todo';
 
+import MediaOverview from './pages/media/MediaOverview';
+import DeleteMedia from './pages/media/media/DeleteMedia';
+import EditMedia from './pages/media/media/EditMedia';
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Navbar />}>
@@ -65,6 +69,10 @@ const router = createBrowserRouter(
           <Route path='/vaner/:id/rediger' element={<EditHabit />} />
           <Route path='/vaner/:id/slett' element={<DeleteHabit />} />
           
+          <Route path="/medier" element={<MediaOverview />} />
+          <Route path='/medier/:id/rediger' element={<EditMedia />} />
+          <Route path='/medier/:id/slett' element={<DeleteMedia />} />
+
         </Route>
 
         <Route element={<RequireNotAuth />}>

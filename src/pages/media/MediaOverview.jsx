@@ -1,14 +1,12 @@
 import { Badge, Box, Tab, Tabs } from "@mui/material";
 
-import Sleep from './Sleep';
-import SleepStats from "./SleepStats";
+import Media from './media/Media';
+import Bookmarks from './Bookmarks';
+import Notes from './Notes';
 
 import PropTypes from 'prop-types';
 import { useState } from "react";
-import { BarChart, Book, Search, SingleBed } from "@material-ui/icons";
-import Diary from "./Diary";
-import DiarySearch from "./DiarySearch";
-
+import { Bookmark, Movie, Note } from "@material-ui/icons";
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -67,41 +65,32 @@ export default function SleepOverview() {
           <Tab 
             icon={
               <Badge color="primary">
-                <SingleBed />
+                <Movie />
               </Badge>
               
-            } label="Registrer søvn" {...a11yProps(0)} />
+            } label="Media" {...a11yProps(0)} />
           <Tab icon={
             <Badge color="primary">
-              <BarChart />
+              <Bookmark />
             </Badge>
             
-            } label="Søvn statistikk" {...a11yProps(1)} />
+            } label="Bokmerker" {...a11yProps(1)} />
           <Tab icon={
             <Badge color="primary">
-              <Book />
+              <Note />
             </Badge>
             
-            } label="Dagbok" {...a11yProps(2)} />
-          <Tab icon={
-            <Badge color="primary">
-              <Search />
-            </Badge>
-            
-            } label="Søk Dagbøker" {...a11yProps(3)} />
+            } label="Notater" {...a11yProps(2)} />
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        <Sleep />
+        <Media />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
-        <SleepStats />
+        <Bookmarks />
       </CustomTabPanel>
       <CustomTabPanel value={value} index={2}>
-        <Diary />
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={3}>
-        <DiarySearch />
+        <Notes />
       </CustomTabPanel>
     </Box>
   </Box>
