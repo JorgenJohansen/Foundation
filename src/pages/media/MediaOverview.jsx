@@ -1,8 +1,8 @@
 import { Badge, Box, Tab, Tabs } from "@mui/material";
 
 import Media from './media/Media';
-import Bookmarks from './Bookmarks';
-import Notes from './Notes';
+import Bookmarks from './bookmarks/Bookmarks';
+import Notes from './notes/Notes';
 
 import PropTypes from 'prop-types';
 import { useState } from "react";

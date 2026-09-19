@@ -40,6 +40,10 @@ import Todo from './pages/todos/Todo';
 import MediaOverview from './pages/media/MediaOverview';
 import DeleteMedia from './pages/media/media/DeleteMedia';
 import EditMedia from './pages/media/media/EditMedia';
+import EditBookmark from './pages/media/bookmarks/EditBookmark';
+import DeleteBookmark from './pages/media/bookmarks/DeleteBookmark';
+import EditNote from './pages/media/notes/EditNote';
+import DeleteNote from './pages/media/notes/DeleteNote';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -72,6 +76,12 @@ const router = createBrowserRouter(
           <Route path="/medier" element={<MediaOverview />} />
           <Route path='/medier/:id/rediger' element={<EditMedia />} />
           <Route path='/medier/:id/slett' element={<DeleteMedia />} />
+
+          <Route path='/bokmerker/:id/rediger' element={<EditBookmark />} />
+          <Route path='/bokmerker/:id/slett' element={<DeleteBookmark />} />
+
+          <Route path='/notat/:id/rediger' element={<EditNote />} />
+          <Route path='/notat/:id/slett' element={<DeleteNote />} />
 
         </Route>
 

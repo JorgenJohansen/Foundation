@@ -16,30 +16,36 @@ const classes = {
     },
 }
 
-export default function MediaForm({user, setOpen}) {
+export default function NoteForm({user, setOpen}) {
 
     const [title, setTitle] = useState('');
-    
+    const [description, setDescription] = useState('');
 
     const [titleError, setTitleError] = useState(false);
-
+    const [descriptionError, setDescriptionError] = useState(false);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
 
         setTitleError(false);
+        setDescriptionError(false);
 
         if(title === '' || title.trim().length === 0){
           setTitleError(true);
           return;
         }
 
-        const colRef = collection(db, 'media');
+        if(description === '' || description.trim().length === 0){
+          setDescriptionError(true);
+          return;
+        }
+
+        const colRef = collection(db, 'note');
 
         await addDoc(colRef, {
             createdAt: timestamp.fromDate(new Date()),
             title: title.trim(),
-            done: false,
+            description: description.trim(),
             uid: user?.uid,
         });
 
@@ -62,7 +68,7 @@ export default function MediaForm({user, setOpen}) {
               gutterBottom
               sx={{textTransform: 'uppercase'}}
           >
-              Legg til media
+              Lag nytt notat
           </Typography>
           
           <TextField 
@@ -76,6 +82,19 @@ export default function MediaForm({user, setOpen}) {
               required
               error={titleError}
           />
+          <TextField 
+              type="text"
+              onChange={(e) => setDescription(e.target.value)}
+              sx={classes.field}
+              label="Beskrivelse"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              multiline
+              rows={4}
+              required
+              error={descriptionError}
+          />
           
           <Button 
           sx={{width: 400}}
@@ -83,7 +102,7 @@ export default function MediaForm({user, setOpen}) {
           color="primary" 
           variant="contained"
           >
-          Legg til media
+          Lag notat
           </Button>
           </Box>
       </form>

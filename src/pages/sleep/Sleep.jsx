@@ -84,7 +84,7 @@ export default function Sleep() {
           Registrer din søvn
         </Typography>
       </Button>}
-        {(sleep.length === 0) && dateObj && <Button 
+        {(sleep.length === 0) && energyLevel && <Button 
             sx={{width: 400, marginBottom: 5}}
             type="submit" 
             color="secondary" 

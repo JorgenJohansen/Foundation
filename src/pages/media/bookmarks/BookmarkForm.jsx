@@ -16,30 +16,38 @@ const classes = {
     },
 }
 
-export default function MediaForm({user, setOpen}) {
+export default function BookmarkForm({user, setOpen}) {
 
     const [title, setTitle] = useState('');
+    const [link, setLink] = useState('');
     
 
     const [titleError, setTitleError] = useState(false);
+    const [linkError, setLinkError] = useState(false);
 
 
     const handleSubmit = async(e) => {
         e.preventDefault();
 
         setTitleError(false);
+        setLinkError(false);
 
         if(title === '' || title.trim().length === 0){
           setTitleError(true);
           return;
         }
 
-        const colRef = collection(db, 'media');
+        if(link === '' || link.trim().length === 0){
+          setLinkError(true);
+          return;
+        }
+
+        const colRef = collection(db, 'bookmark');
 
         await addDoc(colRef, {
             createdAt: timestamp.fromDate(new Date()),
             title: title.trim(),
-            done: false,
+            link: link,
             uid: user?.uid,
         });
 
@@ -62,7 +70,7 @@ export default function MediaForm({user, setOpen}) {
               gutterBottom
               sx={{textTransform: 'uppercase'}}
           >
-              Legg til media
+              Legg til bokmerke
           </Typography>
           
           <TextField 
@@ -76,6 +84,18 @@ export default function MediaForm({user, setOpen}) {
               required
               error={titleError}
           />
+
+          <TextField 
+              type="text"
+              onChange={(e) => setLink(e.target.value)}
+              sx={classes.field}
+              label="Lenke"
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              required
+              error={linkError}
+          />
           
           <Button 
           sx={{width: 400}}
@@ -83,7 +103,7 @@ export default function MediaForm({user, setOpen}) {
           color="primary" 
           variant="contained"
           >
-          Legg til media
+          Legg til bokmerke
           </Button>
           </Box>
       </form>
