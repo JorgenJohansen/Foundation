@@ -1,3 +1,5 @@
+import { lazy, Suspense } from 'react';
+
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
 import { useAuthContext } from './hooks/useAuthContext';
@@ -45,8 +47,12 @@ import DeleteBookmark from './pages/media/bookmarks/DeleteBookmark';
 import EditNote from './pages/media/notes/EditNote';
 import DeleteNote from './pages/media/notes/DeleteNote';
 
+
+const Profile = lazy(() => import('./pages/profile/Profile'))
+
 const router = createBrowserRouter(
   createRoutesFromElements(
+     
     <Route path='/' element={<Navbar />}>
         <Route element={<RequireAuth />}>
           <Route path='/' element={<SleepOverview />} />
@@ -83,6 +89,10 @@ const router = createBrowserRouter(
           <Route path='/notat/:id/rediger' element={<EditNote />} />
           <Route path='/notat/:id/slett' element={<DeleteNote />} />
 
+          
+            <Route path='/profil' element={<Profile /> } />
+          
+
         </Route>
 
         <Route element={<RequireNotAuth />}>
@@ -95,15 +105,16 @@ const router = createBrowserRouter(
         <Route path='vilkar' element={<Terms />}/>
         <Route path='personvern' element={<Privacy />} />
     </Route>
+    
   )
 )
 
 function App() {
   const { authIsReady } = useAuthContext();
   return (
-    <>
+    <Suspense fallback={<div>Laster inn...</div>}>
       {authIsReady && <RouterProvider router={router} />}
-    </>
+    </Suspense>
   )
 }
 

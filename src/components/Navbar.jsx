@@ -153,7 +153,7 @@ export default function Navbar() {
                         button="true"
                         sx={classes.listItem}
                         key={"bruker"}
-                        onClick={() => navigate("/")}
+                        onClick={() => navigate("/profil")}
                     >
                         <ListItemText sx={{textWrap:'nowrap'}} primary={`Hei, ${getFirstName(user?.displayName)}`}/>
                         <Person />
@@ -213,7 +213,7 @@ export default function Navbar() {
                         button="true"
                         sx={classes.mobileListItem}
                         key={"bruker"}
-                        onClick={() => closeAndNavigate("/")}
+                        onClick={() => closeAndNavigate("/profil")}
                     >
                         <ListItemText sx={{textWrap:'nowrap'}} primary={`Hei, ${getFirstName(user?.displayname)}`}/>
                         <Person />
