@@ -47,7 +47,7 @@ export default function Habits() {
           <HabitForm user={user} setOpen={setOpen} />
       </Drawer>
 
-      {doneHabits?.length === 0 && <Button 
+      {doneHabits?.length === 0 && habits.length > 0 && <Button 
           sx={{width: 200, marginBottom: 5}}
           type="submit" 
           color="secondary" 
@@ -63,7 +63,7 @@ export default function Habits() {
       </Drawer>
 
       <Typography variant="h5" sx={{marginY: 5}}>Her kan du se de vanene du har utført i dag.</Typography>
-      {doneHabits.length === habits.length && <Typography variant="h5" sx={{marginY: 5}}>Bra jobba! ({`${doneHabits.length} / ${habits.length}`}).</Typography>}
+      {doneHabits.length === habits.length && habits.length > 0 && <Typography variant="h5" sx={{marginY: 5}}>Bra jobba! ({`${doneHabits.length} / ${habits.length}`}).</Typography>}
 
       {doneHabits && <HabitList habits={doneHabits} />}
     </Box>

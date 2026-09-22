@@ -48,7 +48,9 @@ import EditNote from './pages/media/notes/EditNote';
 import DeleteNote from './pages/media/notes/DeleteNote';
 
 
-const Profile = lazy(() => import('./pages/profile/Profile'))
+const Profile = lazy(() => import('./pages/profile/Profile'));
+const Review = lazy(() => import('./pages/profile/review/Review'));
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -90,7 +92,8 @@ const router = createBrowserRouter(
           <Route path='/notat/:id/slett' element={<DeleteNote />} />
 
           
-            <Route path='/profil' element={<Profile /> } />
+          <Route path='/profil' element={<Profile /> } />
+          <Route path='/profil/anmeldelse' element={<Review /> } />
           
 
         </Route>

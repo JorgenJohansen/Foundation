@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 
 import { useState } from "react";
 
-import { db, timestamp } from "../../firebase/config";
+import { db, timestamp } from "../../../firebase/config";
 import { addDoc, collection } from "firebase/firestore";
 
 const classes = {
@@ -17,23 +17,17 @@ const classes = {
 }
 
 
-export default function DiaryForm({user, date, week, setOpen}) {
+export default function ReviewForm({user, setOpen}) {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [score, setScore] = useState('');
 
     const [titleError, setTitleError] = useState(false);
     const [contentError, setContentError] = useState(false);
-    
+    const [scoreError, setScoreError] = useState(false);
 
-    const getYear = (date1) => {
-        const dateList = date1.split(".");
-        const year = dateList[2];
-        return +year;
-    }
-
-    const getDate = (date1) => {
-        const dateList = date1.split(".");
-        return `${dateList[0]}.${dateList[1]}.${dateList[2]}`
+    const handleChange = (event) => {
+        setScore(event.target.value);
     }
     
     const handleSubmit = async(e) => {
@@ -41,27 +35,32 @@ export default function DiaryForm({user, date, week, setOpen}) {
 
         setTitleError(false);
         setContentError(false);
-        
+        setScoreError(false);
 
-        if(title === ''){
+        if(title === '' || title.trim().length === 0){
           setTitleError(true);
           return;
         }
 
-        if(content === ''){
+        if(content === ''|| content.trim().length === 0){
           setContentError(true);
           return;
         }
 
-        const colRef = collection(db, 'diary');
+        if(score === ''){
+            setScoreError(true);
+            return;
+        }
+
+        const colRef = collection(db, 'review');
 
         await addDoc(colRef, {
             createdAt: timestamp.fromDate(new Date()),
-            date: date,
-            week: week,
-            year: getYear(date),
             title: title,
             content: content,
+            score: score,
+            isEdited: false,
+            isPending: true,
             uid: user?.uid,
         });
 
@@ -87,7 +86,7 @@ export default function DiaryForm({user, date, week, setOpen}) {
                     gutterBottom
                     sx={{textTransform: 'uppercase'}}
                 >
-                    Lag dagbok for {getDate(date)}
+                    Lag anmeldelse
                 </Typography>
 
                 
@@ -117,6 +116,31 @@ export default function DiaryForm({user, date, week, setOpen}) {
                     
                     error={contentError}
                 />
+                <Box sx={{width: 400, margin: 5}}>
+
+                <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Score</InputLabel>
+                    <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={score}
+                    label="Score"
+                    onChange={handleChange}
+                    >
+                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={2}>2</MenuItem>
+                    <MenuItem value={3}>3</MenuItem>
+                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={6}>6</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                    <MenuItem value={8}>8</MenuItem>
+                    <MenuItem value={9}>9</MenuItem>
+                    <MenuItem value={10}>10</MenuItem>
+                    </Select>
+                </FormControl>
+                </Box>
+                {scoreError && <Typography>Score må være et tall mellom 1 og 10.</Typography>}
                 
                 
                 <Button 
@@ -125,7 +149,7 @@ export default function DiaryForm({user, date, week, setOpen}) {
                 color="primary" 
                 variant="contained"
                 >
-                Lag din dagbok
+                Send inn din anmeldelse
                 </Button>
                 </Box>
             </form>

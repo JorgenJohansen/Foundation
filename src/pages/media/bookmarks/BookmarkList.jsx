@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { Box, IconButton, Link, List, ListItem, ListItemText, Tooltip, Typography,  } from "@mui/material";
-import { DeleteOutlined, EditOutlined, VisibilityOutlined } from "@material-ui/icons";
+import { ArrowForward, DeleteOutlined, EditOutlined } from "@material-ui/icons";
 
 import { useNavigate } from "react-router-dom";
 
@@ -27,10 +27,10 @@ export default function BookmarkList({bookmarks}) {
                     secondaryAction={
                         <Box display="flex" justifyContent="center" alignItems="center">
 
-                       <Tooltip title={<Typography fontSize={15}>Sjekk ut Githuben</Typography>} placement="top">
+                       <Tooltip title={<Typography fontSize={15}>Dra til {bookmark?.title}</Typography>} placement="top">
                         <Link sx={{fontSize: 30}} href={bookmark?.link} underline='hover'>
                             <IconButton >
-                                <VisibilityOutlined/>
+                                <ArrowForward/>
                             </IconButton>
                         </Link>
                     </Tooltip>
