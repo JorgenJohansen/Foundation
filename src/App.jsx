@@ -95,10 +95,14 @@ const DeleteReview = lazy(() => import('./pages/profile/review/DeleteReview'));
 const Issue = lazy(() => import('./pages/profile/issue/Issue'));
 const AdminOverview = lazy(() => import('./pages/profile/admin/AdminOverview'));
 
+const Error404 = lazy(() => import('./pages/error/Error404'));
+
+const CircularIndeterminate = lazy(() => import('./pages/spinner/CircularIntermediate'));
+
 const router = createBrowserRouter(
   createRoutesFromElements(
      
-    <Route path='/' element={<Navbar />}>
+    <Route path='/' element={<Navbar />} errorElement={<Error404 />}>
         <Route element={<RequireAuth />}>
           <Route path='/' element={<SleepOverview />} />
           <Route path='/dagbok/:id/rediger' element={<DiaryEditForm />} />
@@ -161,7 +165,7 @@ const router = createBrowserRouter(
 function App() {
   const { authIsReady } = useAuthContext();
   return (
-    <Suspense fallback={<div>Laster inn...</div>}>
+    <Suspense fallback={<CircularIndeterminate />}>
       {authIsReady && <RouterProvider router={router} />}
     </Suspense>
   )
