@@ -1,13 +1,18 @@
 import { Badge, Box, Tab, Tabs } from "@mui/material";
 
-import Sleep from './Sleep';
-import SleepStats from "./SleepStats";
-
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { BarChart, Book, Search, SingleBed } from "@material-ui/icons";
-import Diary from "./Diary";
-import DiarySearch from "./DiarySearch";
+
+//Må kode splittes:
+const Sleep = lazy(() => import('./Sleep'));
+// import Sleep from './Sleep';
+const SleepStats = lazy(() => import('./SleepStats'));
+// import SleepStats from "./SleepStats";
+const Diary = lazy(() => import('./Diary'));
+// import Diary from "./Diary";
+const DiarySearch = lazy(() => import('./DiarySearch'));
+// import DiarySearch from "./DiarySearch";
 
 
 function CustomTabPanel(props) {

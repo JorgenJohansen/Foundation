@@ -1,14 +1,18 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 
-import { useState } from "react";
+import { lazy, useState } from "react";
 
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useCollection } from "../../hooks/useCollection";
 
 import { getWeek } from "date-fns";
 
-import DiaryInfo from "./DiaryInfo";
-import DiaryForm from "./DiaryForm";
+
+// import DiaryInfo from "./DiaryInfo";
+// import DiaryForm from "./DiaryForm";
+
+const DiaryInfo = lazy(() => import('./DiaryInfo'));
+const DiaryForm = lazy(() => import('./DiaryForm'));
 
 export default function Diary() {
     const [open, setOpen] = useState(false);

@@ -4,12 +4,19 @@ import { useCollection } from "../../hooks/useCollection";
 
 import { db } from "../../firebase/config";
 
-import { useEffect, useState, useCallback } from "react";
-import SleepForm from "./SleepForm";
-import SleepFormFilled from "./SleepFormFilled";
+import { useEffect, useState, useCallback, lazy } from "react";
+
 import { getWeek, subDays } from "date-fns";
-import SleepInfo from "./SleepInfo";
+
 import { collection, getDocs, query, where } from "firebase/firestore";
+
+
+// import SleepForm from "./SleepForm";
+// import SleepFormFilled from "./SleepFormFilled";
+// import SleepInfo from "./SleepInfo";
+const SleepForm = lazy(() => import('./SleepForm'));
+const SleepFormFilled = lazy(() => import('./SleepFormFilled'));
+const SleepInfo = lazy(() => import('./SleepInfo'));
 
 export default function Sleep() {
     const [open, setOpen] = useState(false);

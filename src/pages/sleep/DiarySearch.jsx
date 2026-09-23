@@ -1,10 +1,12 @@
 import { Box, Button, List, ListItem, ListItemText, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { getWeek } from "date-fns";
-import DiaryList from './DiaryList';
+
+const DiaryList = lazy(() => import('./DiaryList'));
+// import DiaryList from './DiaryList';
 
 const classes = {
     field: {

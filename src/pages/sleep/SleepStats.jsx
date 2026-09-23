@@ -1,10 +1,13 @@
 import { Box, Button, List, ListItem, ListItemText, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { collection, getDocs, limit, orderBy, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
-import SleepCharts from "./SleepCharts";
+
 import { getWeek } from "date-fns";
+
+const SleepCharts = lazy(() => import('./SleepCharts'));
+// import SleepCharts from "./SleepCharts";
 
 const classes = {
     field: {
