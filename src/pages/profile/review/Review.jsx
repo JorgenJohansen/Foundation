@@ -25,10 +25,10 @@ export default function Review() {
     
 
   return (
-    <Box sx={{margin: 20}}>
+    <Box sx={{margin: 30}}>
 
         <Button 
-            sx={{width: 300, marginLeft: -20}}
+            sx={{width: 300, marginLeft: -30, marginTop: -30}}
             type="submit" 
             color="primary" 
             variant="contained"

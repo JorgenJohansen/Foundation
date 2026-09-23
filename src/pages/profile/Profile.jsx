@@ -24,7 +24,7 @@ export default function Profile() {
           variant="contained" 
           sx={{width: 300, margin: 2}}
           onClick={() => navigate("/profil/rapporter")}
-        >Rapporter et problem</Button>
+        >Rapporter en feil</Button>
     </Box>
   )
 }

@@ -47,10 +47,11 @@ import DeleteBookmark from './pages/media/bookmarks/DeleteBookmark';
 import EditNote from './pages/media/notes/EditNote';
 import DeleteNote from './pages/media/notes/DeleteNote';
 
-
+//Code Splitting :)
 const Profile = lazy(() => import('./pages/profile/Profile'));
 const Review = lazy(() => import('./pages/profile/review/Review'));
-
+const EditReview = lazy(() => import('./pages/profile/review/EditReview'));
+const DeleteReview = lazy(() => import('./pages/profile/review/DeleteReview'));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -94,6 +95,8 @@ const router = createBrowserRouter(
           
           <Route path='/profil' element={<Profile /> } />
           <Route path='/profil/anmeldelse' element={<Review /> } />
+          <Route path='/profil/anmeldelse/:id/rediger' element={<EditReview /> } />
+          <Route path='/profil/anmeldelse/:id/slett' element={<DeleteReview /> } />
           
 
         </Route>

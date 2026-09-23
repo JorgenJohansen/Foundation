@@ -127,7 +127,7 @@ export default function ReviewForm({user, setOpen}) {
                     label="Score"
                     onChange={handleChange}
                     >
-                    <MenuItem value={1}>1</MenuItem>
+                    <MenuItem value={1}>1 (Svært dårlig)</MenuItem>
                     <MenuItem value={2}>2</MenuItem>
                     <MenuItem value={3}>3</MenuItem>
                     <MenuItem value={4}>4</MenuItem>
@@ -136,7 +136,7 @@ export default function ReviewForm({user, setOpen}) {
                     <MenuItem value={7}>7</MenuItem>
                     <MenuItem value={8}>8</MenuItem>
                     <MenuItem value={9}>9</MenuItem>
-                    <MenuItem value={10}>10</MenuItem>
+                    <MenuItem value={10}>10 (Svært bra)</MenuItem>
                     </Select>
                 </FormControl>
                 </Box>
