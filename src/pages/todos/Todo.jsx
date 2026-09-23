@@ -1,10 +1,15 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import { useCollection } from "../../hooks/useCollection";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
+
 import { useNavigate, useParams } from "react-router-dom";
+
+// import TodoForm from "./TodoForm";
+// import TodoList from "./TodoList";
+
+const TodoForm = lazy(() => import('./TodoForm'));
+const TodoList = lazy(() => import('./TodoList'));
 
 
 export default function Todo() {
