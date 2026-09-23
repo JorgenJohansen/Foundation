@@ -1,9 +1,13 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import { useCollection } from "../../hooks/useCollection";
-import BudgetList from "./BudgetList";
-import BudgetForm from "./BudgetForm";
+
+// import BudgetList from "./BudgetList";
+// import BudgetForm from "./BudgetForm";
+
+const BudgetList = lazy(() => import('./BudgetList'));
+const BudgetForm = lazy(() => import('./BudgetForm'));
 
 export default function Budgets() {
 

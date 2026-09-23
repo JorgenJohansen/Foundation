@@ -5,13 +5,21 @@ import { ArrowBack } from "@material-ui/icons";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDocument } from '../../../hooks/useDocument';
 import { useSubCollection } from '../../../hooks/useSubCollection';
-import BudgetInfo from "./BudgetInfo";
-import CakeChart from "./PieChart";
-import MonthlyExpenses from "./expenses/monthlyExpenses/MonthlyExpenses";
-import YearlyExpenses from "./expenses/yearlyExpenses/YearlyExpenses";
-import SingleExpenses from "./expenses/singleExpenses/SingleExpenses";
+
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { lazy, useState } from "react";
+
+// import BudgetInfo from "./BudgetInfo";
+// import CakeChart from "./PieChart";
+// import MonthlyExpenses from "./expenses/monthlyExpenses/MonthlyExpenses";
+// import YearlyExpenses from "./expenses/yearlyExpenses/YearlyExpenses";
+// import SingleExpenses from "./expenses/singleExpenses/SingleExpenses";
+
+const BudgetInfo = lazy(() => import('./BudgetInfo'));
+const CakeChart = lazy(() => import('./PieChart'));
+const MonthlyExpenses = lazy(() => import('./expenses/monthlyExpenses/MonthlyExpenses'));
+const YearlyExpenses = lazy(() => import('./expenses/yearlyExpenses/YearlyExpenses'));
+const SingleExpenses = lazy(() => import('./expenses/singleExpenses/SingleExpenses'));
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;

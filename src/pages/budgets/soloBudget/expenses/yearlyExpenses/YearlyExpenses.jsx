@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { Box, Button, Drawer, Typography } from "@mui/material";
-import YearlyExpensesList from "./YearlyExpensesList";
-import YearlyExpensesForm from "./YearlyExpensesForm";
 import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
+// import YearlyExpensesList from "./YearlyExpensesList";
+// import YearlyExpensesForm from "./YearlyExpensesForm";
+
+const YearlyExpensesList = lazy(() => import('./YearlyExpensesList'));
+const YearlyExpensesForm = lazy(() => import('./YearlyExpensesForm'));
 
 
 export default function YearlyExpenses({expenses, budgetId}) {
