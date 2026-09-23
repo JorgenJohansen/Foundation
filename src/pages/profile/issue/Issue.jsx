@@ -1,12 +1,15 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 
-import { useState } from "react";
+import { lazy, useState } from "react";
 
 import { useAuthContext } from '../../../hooks/useAuthContext';
 import { useCollection } from "../../../hooks/useCollection";
 
-import IssueForm from "./IssueForm";
+
 import { useNavigate } from "react-router-dom";
+
+const IssueForm = lazy(() => import('./IssueForm'));
+// import IssueForm from "./IssueForm";
 
 export default function Issue() {
 

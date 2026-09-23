@@ -1,13 +1,17 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 
-import { useState } from "react";
+import { lazy, useState } from "react";
 
 import { useAuthContext } from '../../../hooks/useAuthContext';
 import { useCollection } from "../../../hooks/useCollection";
 
-import ReviewInfo from "./ReviewInfo";
-import ReviewForm from "./ReviewForm";
+
 import { useNavigate } from "react-router-dom";
+
+const ReviewInfo = lazy(() => import('./ReviewInfo'));
+const ReviewForm = lazy(() => import('./ReviewForm'));
+// import ReviewInfo from "./ReviewInfo";
+// import ReviewForm from "./ReviewForm";
 
 export default function Review() {
     const [open, setOpen] = useState(false);
