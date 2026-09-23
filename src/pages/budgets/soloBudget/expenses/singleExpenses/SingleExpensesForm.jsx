@@ -108,7 +108,7 @@ export default function SingleExpensesForm({user, setOpen, budgetId}) {
             required
             error={titleError}
         />
-        {titleError && <Typography sx={{marginBottom: 2, color: 'red', border: '2px solid red', borderRadius: 10, padding: 2}}>Tittel på budsjett må være gitt.</Typography>}
+        {titleError && <Typography sx={{marginBottom: 2, color: 'red', border: '2px solid red', borderRadius: 10, padding: 2}}>Tittel på kostnad må være gitt.</Typography>}
         <TextField 
             type="number"
             onChange={(e) => setExpense(e.target.value)}
