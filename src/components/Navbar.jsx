@@ -90,46 +90,46 @@ export default function Navbar() {
                     >
                         <ListItemText primary={"Foundation"}/>
                     </ListItem>
-                    <ListItem
+                    {user && <ListItem
                         button="true"
                         sx={classes.listItem}
                         key={"sovn"}
                         onClick={() => navigate("/")}
                     >
                         <ListItemText primary={"Søvn"}/>
-                    </ListItem>
-                    <ListItem
+                    </ListItem>}
+                    {user && <ListItem
                         button="true"
                         sx={classes.listItem}
                         key={"todos"}
                         onClick={() => navigate("/todos")}
                     >
                         <ListItemText primary={"Todos"}/>
-                    </ListItem>
-                    <ListItem
+                    </ListItem>}
+                    {user && <ListItem
                         button="true"
                         sx={classes.listItem}
                         key={"budsjetter"}
                         onClick={() => navigate("/budsjetter")}
                     >
                         <ListItemText primary={"Budsjetter"}/>
-                    </ListItem>
-                    <ListItem
+                    </ListItem>}
+                    {user && <ListItem
                         button="true"
                         sx={classes.listItem}
                         key={"vaner"}
                         onClick={() => navigate("/vaner")}
                     >
                         <ListItemText primary={"Vaner"}/>
-                    </ListItem>
-                    <ListItem
+                    </ListItem>}
+                    {user && <ListItem
                         button="true"
                         sx={classes.listItem}
                         key={"medier"}
                         onClick={() => navigate("/medier")}
                     >
                         <ListItemText primary={"Medier"}/>
-                    </ListItem>
+                    </ListItem>}
                 </List>
                 </Box>
                 
