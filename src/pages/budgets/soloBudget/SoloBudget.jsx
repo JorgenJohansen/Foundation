@@ -16,7 +16,7 @@ import { lazy, useState } from "react";
 // import SingleExpenses from "./expenses/singleExpenses/SingleExpenses";
 
 const BudgetInfo = lazy(() => import('./BudgetInfo'));
-const CakeChart = lazy(() => import('./PieChart'));
+const PieChart = lazy(() => import('./PieChart'));
 const MonthlyExpenses = lazy(() => import('./expenses/monthlyExpenses/MonthlyExpenses'));
 const YearlyExpenses = lazy(() => import('./expenses/yearlyExpenses/YearlyExpenses'));
 const SingleExpenses = lazy(() => import('./expenses/singleExpenses/SingleExpenses'));
@@ -77,7 +77,7 @@ export default function SoloBudget() {
         
         <Box sx={{display: 'flex', flexWrap: 'wrap', margin: 2}}>
           <BudgetInfo budget={budget} monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
-          <CakeChart monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
+          <PieChart monthlyExpenses={monthlyExpenses} yearlyExpenses={yearlyExpenses} singleExpenses={singleExpenses} />
         </Box>
         <Box sx={{ width: '90%', margin: 10 }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
