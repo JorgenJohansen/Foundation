@@ -1,12 +1,15 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 
-import { useState } from "react";
+import { lazy, useState } from "react";
 
 import { useAuthContext } from '../../../hooks/useAuthContext';
 import { useCollection } from "../../../hooks/useCollection";
 
-import MediaForm from './MediaForm'
-import MediaList from './MediaList'
+// import MediaForm from './MediaForm'
+// import MediaList from './MediaList'
+
+const MediaForm = lazy(() => import('./MediaForm'));
+const MediaList = lazy(() => import('./MediaList'));
 
 export default function Media() {
 

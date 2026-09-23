@@ -1,12 +1,15 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 
-import { useState } from "react";
+import { lazy, useState } from "react";
 
 import { useAuthContext } from '../../../hooks/useAuthContext';
 import { useCollection } from "../../../hooks/useCollection";
 
-import BookmarkForm from './BookmarkForm'
-import BookmarkList from './BookmarkList'
+// import BookmarkForm from './BookmarkForm'
+// import BookmarkList from './BookmarkList'
+
+const BookmarkForm = lazy(() => import('./BookmarkForm'));
+const BookmarkList = lazy(() => import('./BookmarkList'));
 
 export default function Bookmarks() {
 

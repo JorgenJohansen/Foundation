@@ -1,12 +1,15 @@
 import { Box, Button, Drawer, Typography } from "@mui/material";
 
-import { useState } from "react";
+import { lazy, useState } from "react";
 
 import { useAuthContext } from '../../../hooks/useAuthContext';
 import { useCollection } from "../../../hooks/useCollection";
 
-import NoteForm from './NoteForm'
-import NoteList from './NoteList'
+// import NoteForm from './NoteForm'
+// import NoteList from './NoteList'
+
+const NoteForm = lazy(() => import('./NoteForm')); 
+const NoteList = lazy(() => import('./NoteList')); 
 
 export default function Notes() {
 

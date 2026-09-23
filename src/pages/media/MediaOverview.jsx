@@ -1,12 +1,16 @@
 import { Badge, Box, Tab, Tabs } from "@mui/material";
 
-import Media from './media/Media';
-import Bookmarks from './bookmarks/Bookmarks';
-import Notes from './notes/Notes';
-
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { Bookmark, Movie, Note } from "@material-ui/icons";
+
+// import Media from './media/Media';
+// import Bookmarks from './bookmarks/Bookmarks';
+// import Notes from './notes/Notes';
+
+const Media = lazy(() => import('./media/Media'));
+const Bookmarks = lazy(() => import('./bookmarks/Bookmarks'));
+const Notes = lazy(() => import('./notes/Notes'));
 
 function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
