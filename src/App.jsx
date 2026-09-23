@@ -4,48 +4,88 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 
 import { useAuthContext } from './hooks/useAuthContext';
 
-import Navbar from './components/Navbar';
-import RequireAuth from './guards/RequireAuth';
-import RequireNotAuth from './guards/RequireNotAuth';
+//Code Splitting med lazy :)
 
-import Signup from './pages/signup/Signup';
-import Login from './pages/login/Login';
-import Logout from './pages/logout/Logout';
-import Forgot from './pages/forgot/Forgot';
-import Terms from './pages/terms/Terms';
-import Privacy from './pages/privacy/Privacy';
+// import Navbar from './components/Navbar';
+const Navbar = lazy(() => import('./components/Navbar'));
+// import RequireAuth from './guards/RequireAuth';
+const RequireAuth = lazy(() => import('./guards/RequireAuth'));
+// import RequireNotAuth from './guards/RequireNotAuth';
+const RequireNotAuth = lazy(() => import('./guards/RequireNotAuth'));
 
-import SleepOverview from './pages/sleep/SleepOverview';
-import Todos from './pages/todos/Todos';
-import Budgets from './pages/budgets/Budgets';
-import DiaryEditForm from './pages/sleep/DiaryEditForm'
+// import Signup from './pages/signup/Signup';
+const Signup = lazy(() => import('./pages/signup/Signup'));
+// import Login from './pages/login/Login';
+const Login = lazy(() => import('./pages/login/Login'));
+// import Logout from './pages/logout/Logout';
+const Logout = lazy(() => import('./pages/logout/Logout'));
+// import Forgot from './pages/forgot/Forgot';
+const Forgot = lazy(() => import('./pages/forgot/Forgot'));
+// import Terms from './pages/terms/Terms';
+const Terms = lazy(() => import('./pages/terms/Terms'));
+// import Privacy from './pages/privacy/Privacy';
+const Privacy = lazy(() => import('./pages/privacy/Privacy'));
 
-import EditTodo from './pages/todos/EditTodo';
-import DeleteTodo from './pages/todos/DeleteTodo';
+// import SleepOverview from './pages/sleep/SleepOverview';
+const SleepOverview = lazy(() => import('./pages/sleep/SleepOverview'));
+// import Todos from './pages/todos/Todos';
+const Todos = lazy(() => import('./pages/todos/Todos'));
+// import Budgets from './pages/budgets/Budgets';
+const Budgets = lazy(() => import('./pages/budgets/Budgets'));
+// import DiaryEditForm from './pages/sleep/DiaryEditForm'
+const DiaryEditForm = lazy(() => import('./pages/sleep/DiaryEditForm'));
 
-import SoloBudget from './pages/budgets/soloBudget/SoloBudget';
-import EditBudget from './pages/budgets/EditBudget';
-import DeleteBudget from './pages/budgets/DeleteBudget';
 
-import EditMonthlyExpenses from './pages/budgets/soloBudget/expenses/monthlyExpenses/EditMonthlyExpenses';
-import DeleteMonthlyExpenses from './pages/budgets/soloBudget/expenses/monthlyExpenses/DeleteMonthlyExpenses';
-import EditYearlyExpenses from './pages/budgets/soloBudget/expenses/yearlyExpenses/EditYearlyExpenses';
-import DeleteYearlyExpenses from './pages/budgets/soloBudget/expenses/yearlyExpenses/DeleteYearlyExpenses';
-import EditSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpenses/EditSingleExpenses';
-import DeleteSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpenses/DeleteSingleExpenses';
 
-import Habits from './pages/habits/Habits';
-import EditHabit from './pages/habits/EditHabit';
-import DeleteHabit from './pages/habits/DeleteHabit';
-import Todo from './pages/todos/Todo';
+// import SoloBudget from './pages/budgets/soloBudget/SoloBudget';
+const SoloBudget = lazy(() => import('./pages/budgets/soloBudget/SoloBudget'));
+// import EditBudget from './pages/budgets/EditBudget';
+const EditBudget = lazy(() => import('./pages/budgets/EditBudget'));
+// import DeleteBudget from './pages/budgets/DeleteBudget';
+const DeleteBudget = lazy(() => import('./pages/budgets/DeleteBudget'));
 
-import MediaOverview from './pages/media/MediaOverview';
-import DeleteMedia from './pages/media/media/DeleteMedia';
-import EditMedia from './pages/media/media/EditMedia';
-import EditBookmark from './pages/media/bookmarks/EditBookmark';
-import DeleteBookmark from './pages/media/bookmarks/DeleteBookmark';
-import EditNote from './pages/media/notes/EditNote';
-import DeleteNote from './pages/media/notes/DeleteNote';
+// import EditMonthlyExpenses from './pages/budgets/soloBudget/expenses/monthlyExpenses/EditMonthlyExpenses';
+const EditMonthlyExpenses = lazy(() => import('./pages/budgets/soloBudget/expenses/monthlyExpenses/EditMonthlyExpenses'));
+// import DeleteMonthlyExpenses from './pages/budgets/soloBudget/expenses/monthlyExpenses/DeleteMonthlyExpenses';
+const DeleteMonthlyExpenses = lazy(() => import('./pages/budgets/soloBudget/expenses/monthlyExpenses/DeleteMonthlyExpenses'));
+// import EditYearlyExpenses from './pages/budgets/soloBudget/expenses/yearlyExpenses/EditYearlyExpenses';
+const EditYearlyExpenses = lazy(() => import('./pages/budgets/soloBudget/expenses/yearlyExpenses/EditYearlyExpenses'));
+// import DeleteYearlyExpenses from './pages/budgets/soloBudget/expenses/yearlyExpenses/DeleteYearlyExpenses';
+const DeleteYearlyExpenses = lazy(() => import('./pages/budgets/soloBudget/expenses/yearlyExpenses/DeleteYearlyExpenses'));
+// import EditSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpenses/EditSingleExpenses';
+const EditSingleExpenses = lazy(() => import('./pages/budgets/soloBudget/expenses/singleExpenses/EditSingleExpenses'));
+// import DeleteSingleExpenses from './pages/budgets/soloBudget/expenses/singleExpenses/DeleteSingleExpenses';
+const DeleteSingleExpenses = lazy(() => import('./pages/budgets/soloBudget/expenses/singleExpenses/DeleteSingleExpenses'));
+
+
+// import Habits from './pages/habits/Habits';
+const Habits = lazy(() => import('./pages/habits/Habits'));
+// import EditHabit from './pages/habits/EditHabit';
+const EditHabit = lazy(() => import('./pages/habits/EditHabit'));
+// import DeleteHabit from './pages/habits/DeleteHabit';
+const DeleteHabit = lazy(() => import('./pages/habits/DeleteHabit'));
+
+// import Todo from './pages/todos/Todo';
+const Todo = lazy(() => import('./pages/todos/Todo'));
+// import EditTodo from './pages/todos/EditTodo';
+const EditTodo = lazy(() => import('./pages/todos/EditTodo'));
+// import DeleteTodo from './pages/todos/DeleteTodo';
+const DeleteTodo = lazy(() => import('./pages/todos/DeleteTodo'));
+
+// import MediaOverview from './pages/media/MediaOverview';
+const MediaOverview = lazy(() => import('./pages/media/MediaOverview'));
+// import DeleteMedia from './pages/media/media/DeleteMedia';
+const DeleteMedia = lazy(() => import('./pages/media/media/DeleteMedia'));
+// import EditMedia from './pages/media/media/EditMedia';
+const EditMedia = lazy(() => import('./pages/media/media/EditMedia'));
+// import EditBookmark from './pages/media/bookmarks/EditBookmark';
+const EditBookmark = lazy(() => import('./pages/media/bookmarks/EditBookmark'));
+// import DeleteBookmark from './pages/media/bookmarks/DeleteBookmark';
+const DeleteBookmark = lazy(() => import('./pages/media/bookmarks/DeleteBookmark'));
+// import EditNote from './pages/media/notes/EditNote';
+const EditNote = lazy(() => import('./pages/media/notes/EditNote'));
+// import DeleteNote from './pages/media/notes/DeleteNote';
+const DeleteNote = lazy(() => import('./pages/media/notes/DeleteNote'));
 
 //Code Splitting :)
 const Profile = lazy(() => import('./pages/profile/Profile'));
