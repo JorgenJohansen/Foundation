@@ -1,10 +1,15 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { Box, Button, Drawer, Typography } from "@mui/material";
 import { useCollection } from "../../hooks/useCollection";
-import HabitForm from "./HabitForm";
-import HabitList from "./HabitList";
-import RegisterDailyHabitsForm from "./RegisterDailyHabitsForm";
+
+// import HabitForm from "./HabitForm";
+// import HabitList from "./HabitList";
+// import RegisterDailyHabitsForm from "./RegisterDailyHabitsForm";
+
+const HabitForm = lazy(() => import('./HabitForm'));
+const HabitList = lazy(() => import('./HabitList'));
+const RegisterDailyHabitsForm = lazy(() => import('./RegisterDailyHabitsForm'));
 
 
 export default function Habits() {
