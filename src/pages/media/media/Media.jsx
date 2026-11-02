@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material";
 
 import { lazy, useState } from "react";
 
@@ -27,10 +27,18 @@ export default function Media() {
   return (
     <Box sx={{margin: 5}}>
            
-            <Typography variant="h4">Her kan du legge til serier, filmer og annet media du ønsker å se/lese:</Typography>
+            <Typography variant="h4"></Typography>
+            <List>
+              <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -20}}
+                  key={"key"}
+        
+              >
+                  <ListItemText primary={`Her kan du legge til serier, filmer og annet media du ønsker å konsumere:`} />
+              </ListItem>
+            </List>
             
             <Button 
-                sx={{width: 300, marginBottom: 5}}
+                sx={{width: 300, marginBottom: 5, marginLeft: -20}}
                 type="submit" 
                 color="primary" 
                 variant="contained"

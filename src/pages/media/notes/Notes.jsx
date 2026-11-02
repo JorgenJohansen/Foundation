@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material";
 
 import { lazy, useState } from "react";
 
@@ -26,26 +26,32 @@ export default function Notes() {
 
   return (
     <Box sx={{margin: 5}}>
-           
-            <Typography variant="h4">Her kan du legge til notater.</Typography>
-            
-            <Button 
-                sx={{width: 300, marginBottom: 5}}
-                type="submit" 
-                color="primary" 
-                variant="contained"
-                onClick={toggleDrawer(true)}>
-            <Typography>
-              Legg til notat
-            </Typography>
-          </Button>
-    
-          <Drawer anchor="bottom" open={open} onClose={toggleDrawer(false)}>
-              <NoteForm user={user} setOpen={setOpen} />
-          </Drawer>
-    
-    
-          {notes && <NoteList notes={notes} />}
-        </Box>
+      <List>
+        <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -20}}
+            key={"key"}
+  
+        >
+            <ListItemText primary={`Her kan du legge til notater.`} />
+        </ListItem>
+      </List>
+      
+      <Button 
+          sx={{width: 300, marginBottom: 5, marginLeft: -20}}
+          type="submit" 
+          color="primary" 
+          variant="contained"
+          onClick={toggleDrawer(true)}>
+      <Typography>
+        Legg til notat
+      </Typography>
+    </Button>
+
+    <Drawer anchor="bottom" open={open} onClose={toggleDrawer(false)}>
+        <NoteForm user={user} setOpen={setOpen} />
+    </Drawer>
+
+
+    {notes && <NoteList notes={notes} />}
+  </Box>
   )
 }

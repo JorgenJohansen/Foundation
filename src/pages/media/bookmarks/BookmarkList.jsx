@@ -22,7 +22,7 @@ export default function BookmarkList({bookmarks}) {
 
         <List>
             {bookmarks?.map(bookmark => (
-                <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
+                <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -20}}
                     key={bookmark.id}
                     secondaryAction={
                         <Box display="flex" justifyContent="center" alignItems="center">

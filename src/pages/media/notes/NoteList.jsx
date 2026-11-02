@@ -68,7 +68,7 @@ export default function NoteList({notes}) {
             </>}
 
         </Box>
-        {(defaultView || cardView) && <Grid2 container spacing={2} sx={{marginLeft: -10}} xs={12} sm={6} md={4} lg={3} >
+        {(defaultView || cardView) && <Grid2 container spacing={2} sx={{marginLeft: -20}} xs={12} sm={6} md={4} lg={3} >
         {notes?.map(note => (
             <Grid2 item="true" key={note.id} >
 
@@ -105,7 +105,7 @@ export default function NoteList({notes}) {
 
         { listView && <List>
             {notes?.map(note => (
-                <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
+                <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -20}}
                     key={note.id}
                     secondaryAction={
                         <Box display="flex" justifyContent="center" alignItems="center">
