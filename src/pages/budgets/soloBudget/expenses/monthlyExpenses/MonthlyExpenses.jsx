@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { lazy, useState } from "react";
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { useAuthContext } from "../../../../../hooks/useAuthContext";
 
 // import MonthlyExpensesList from "./MonthlyExpensesList";
@@ -23,9 +23,17 @@ export default function MontlyExpenses({expenses, budgetId}) {
 
   return (
     <Box sx={{margin: 10}}>
-            <Typography variant="h5" sx={{marginY: 5, width: 300}}>Her kan du holde oversikt over dine månedlige kostnader.</Typography>
+
+            <List>
+              <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -20}}
+                  key={"key"}
+        
+              >
+                  <ListItemText primary={`Her kan du holde oversikt over dine månedlige kostnader.`} />
+              </ListItem>
+            </List>
             <Button 
-          sx={{width: 300, marginBottom: 5}}
+          sx={{width: 300, marginBottom: 5, marginLeft: -20}}
           type="submit" 
           color="primary" 
           variant="contained"
