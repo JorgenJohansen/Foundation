@@ -1,6 +1,6 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { lazy, useState } from "react";
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { useCollection } from "../../hooks/useCollection";
 
 // import HabitForm from "./HabitForm";
@@ -34,7 +34,14 @@ export default function Habits() {
 
   return (
     <Box sx={{margin: 10}}>
-        <Typography variant="h5" sx={{marginY: 5}}>Her kan du holde oversikt over dine vaner.</Typography>
+        <List>
+          <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
+              key={"key"}
+    
+          >
+              <ListItemText primary={`Her kan du holde oversikt over dine vaner.`} />
+          </ListItem>
+        </List>
         <Button 
           sx={{width: 200, marginBottom: 5}}
           type="submit" 
@@ -67,7 +74,14 @@ export default function Habits() {
           <RegisterDailyHabitsForm user={user} setOpen2={setOpen2} habits={habits} />
       </Drawer>
 
-      <Typography variant="h5" sx={{marginY: 5}}>Her kan du se de vanene du har utført i dag.</Typography>
+      <List>
+          <ListItem sx={{width: 400,  border: "3px solid #17aa26", borderRadius: 2, marginY: 2}}
+              key={"key"}
+    
+          >
+              <ListItemText primary={`Her kan du se de vanene du har utført i dag.`} />
+          </ListItem>
+        </List>
       {doneHabits.length === habits.length && habits.length > 0 && <Typography variant="h5" sx={{marginY: 5}}>Bra jobba! ({`${doneHabits.length} / ${habits.length}`}).</Typography>}
 
       {doneHabits && <HabitList habits={doneHabits} />}
