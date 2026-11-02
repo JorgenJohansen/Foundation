@@ -6,7 +6,7 @@ import { useState } from 'react';
 import {nb} from 'date-fns/locale'
 
 import './Todos.css';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, List, ListItem, ListItemText } from '@mui/material';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +21,14 @@ export default function Todos() {
 
   return (
     <Box sx={{margin: 15, display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
-    <Typography variant='h5'>Velg hvilken dag du ønsker å lage todos i.</Typography>
+    <List>
+        <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -10}}
+            key={"key"}
+  
+        >
+            <ListItemText primary={`Velg hvilken dag du ønsker å lage todos i.`} />
+        </ListItem>
+    </List>
     <Box sx={{}}>
 
     <LocalizationProvider dateAdapter={AdapterDateFns} locale={nb}>
