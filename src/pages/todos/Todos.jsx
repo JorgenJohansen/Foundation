@@ -22,7 +22,7 @@ export default function Todos() {
   return (
     <Box sx={{margin: 15, display: 'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
     <List>
-        <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -10}}
+        <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
             key={"key"}
   
         >
