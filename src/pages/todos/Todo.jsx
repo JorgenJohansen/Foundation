@@ -1,6 +1,6 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { lazy, useState } from "react";
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { useCollection } from "../../hooks/useCollection";
 
 import { useNavigate, useParams } from "react-router-dom";
@@ -43,7 +43,15 @@ export default function Todo() {
           Dra tilbake
         </Typography>
       </Button>
-        <Typography variant="h5" sx={{marginY: 5}}>Her kan du holde oversikt over dine gjøremål for {id}.</Typography>
+      <List>
+        <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2}}
+            key={"key"}
+  
+        >
+            <ListItemText primary={`Her kan du holde oversikt over dine gjøremål for ${id}.`} />
+        </ListItem>
+    </List>
+        
         <Button 
             sx={{width: 200, marginBottom: 5}}
             type="submit" 
