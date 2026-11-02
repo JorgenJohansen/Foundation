@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material";
 
 import { lazy, useState } from "react";
 
@@ -33,8 +33,14 @@ export default function Diary() {
   return (
     <Box sx={{margin: 5}}>
         {(diaries.length === 0) && <>
-          <Typography variant="h4">Her kan du lage dagbok:</Typography>
-          <Typography variant="h5">- Dagen i dag er {date} i uke {week}</Typography>
+          <List>
+            <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -10}}
+                key={"key"}
+      
+            >
+                <ListItemText primary={`Her kan du lage dagbok: - Dagen i dag er ${date} i uke ${week}`} />
+            </ListItem>
+        </List>
         </>}
         
         {(diaries.length === 0) && <Button 

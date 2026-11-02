@@ -1,4 +1,4 @@
-import { Box, Button, Drawer, Typography } from "@mui/material";
+import { Box, Button, Drawer, List, ListItem, ListItemText, Typography } from "@mui/material";
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useCollection } from "../../hooks/useCollection";
 
@@ -77,8 +77,14 @@ export default function Sleep() {
   return (
     <Box sx={{margin: 5}}>
         {(sleep.length === 0) && <>
-          <Typography variant="h4">Her registrer du søvn:</Typography>
-          <Typography variant="h5">- Dagen i dag er {date} i uke {week}</Typography>
+        <List>
+            <ListItem sx={{width: 400,  border: "3px solid #1769aa", borderRadius: 2, marginY: 2, marginLeft: -10}}
+                key={"key"}
+      
+            >
+                <ListItemText primary={`Her registrer du søvn: - Dagen i dag er ${date} i uke ${week}`} />
+            </ListItem>
+        </List>
         </>}
         
         {(sleep.length === 0) && <Button 
